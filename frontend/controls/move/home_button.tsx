@@ -25,10 +25,10 @@ export const HomeButton = (props: HomeButtonProps) => {
     props.setActivePopover(icon);
     props.dispatch(setMovementStateFromPosition(props.botPosition));
     const text = () => {
-      if (locked) { return t("FarmBot is locked"); }
-      if (arduinoBusy) { return t("FarmBot is busy"); }
-      if (!botOnline) { return t("FarmBot is offline"); }
-      if (alreadyAtHome) { return t("FarmBot is already at the home position"); }
+      if (locked) { return t("Holda is locked"); }
+      if (arduinoBusy) { return t("Holda is busy"); }
+      if (!botOnline) { return t("Holda is offline"); }
+      if (alreadyAtHome) { return t("Holda is already at the home position"); }
       if (findHomeDisabled) {
         return t("Stall detection is disabled for one or more axes.");
       }

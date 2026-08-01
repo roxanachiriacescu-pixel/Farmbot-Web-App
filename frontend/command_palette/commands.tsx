@@ -320,7 +320,7 @@ const shopCommand = (): Command => {
   };
 };
 
-const followFarmBotCommand = (): Command => {
+const followHoldaCommand = (): Command => {
   const actions = [
     externalAction(
       "newsletter", "Subscribe to our Newsletter",
@@ -329,7 +329,7 @@ const followFarmBotCommand = (): Command => {
   ];
   return {
     id: "follow-farmbot",
-    ...localized("Follow FarmBot"),
+    ...localized("Follow Holda"),
     aliases: ["newsletter", "subscribe", "blog"],
     group: "navigation",
     imageIcon: FilePath.image("favicon", "png"),
@@ -927,7 +927,7 @@ const settingsItemCommands = (props: BuildCommandProps): Command[] => {
       let unavailable: string | undefined;
       if (item.id == "flash-firmware") {
         if (!online) {
-          unavailable = t("FarmBot is offline.");
+          unavailable = t("Holda is offline.");
         } else if (!firmwareHardware) {
           unavailable = t("Select a firmware type first.");
         }
@@ -1426,7 +1426,7 @@ const fbosSettingCommands = (props: BuildCommandProps): Command[] => {
       ...settingHelp(help, key == "gantry_height"),
       aliases: [
         "fbos", "device", "change", key,
-        `Set FarmBot setting ${text.englishName}`,
+        `Set Holda setting ${text.englishName}`,
       ],
       group: "settings" as const,
       imageIcon: TAB_ICON[Panel.Settings],
@@ -1586,7 +1586,7 @@ const firmwareSettingCommands = (props: BuildCommandProps): Command[] => {
   };
   const encoders = hasEncoders(firmwareHardware);
   const unavailable = props.state.bot.hardware.informational_settings.busy
-    ? t("FarmBot is busy.")
+    ? t("Holda is busy.")
     : undefined;
   return Object.entries(FIRMWARE_SETTINGS)
     .flatMap<Command>(([id, setting]) => {
@@ -1808,7 +1808,7 @@ const threeDSettingCommands = (props: BuildCommandProps): Command[] => {
 
 const commandUnavailable = (props: BuildCommandProps) => {
   const online = isBotOnlineFromState(props.state.bot) || forceOnline();
-  if (!online) { return t("FarmBot is offline."); }
+  if (!online) { return t("Holda is offline."); }
   if (props.state.bot.hardware.informational_settings.locked) {
     return t("Emergency stop is active.");
   }
@@ -2105,8 +2105,8 @@ const powerCommand = (props: BuildCommandProps): Command => {
   const actions = [
     action(
       "reboot",
-      "Reboot FarmBot",
-      "Are you sure you want to reboot FarmBot?",
+      "Reboot Holda",
+      "Are you sure you want to reboot Holda?",
       reboot,
     ),
     action(
@@ -2117,8 +2117,8 @@ const powerCommand = (props: BuildCommandProps): Command => {
     ),
     action(
       "shutdown",
-      "Shutdown FarmBot",
-      "Are you sure you want to shut down FarmBot?",
+      "Shutdown Holda",
+      "Are you sure you want to shut down Holda?",
       powerOff,
     ),
   ];
@@ -2145,7 +2145,7 @@ const directDeviceCommands = (props: BuildCommandProps): Command[] => {
   const commands: [string, string, () => unknown, string?][] = [
     ["estop", "E-Stop", emergencyLock],
     ["unlock", "Unlock", unlock],
-    ["sync", "Sync FarmBot", () => props.dispatch(sync())],
+    ["sync", "Sync Holda", () => props.dispatch(sync())],
   ];
   const icons: Record<string, string> = {
     estop: "pause",
@@ -2483,7 +2483,7 @@ const addCommands = (props: BuildCommandProps): Command[] => {
   const botXY = isNumber(botPosition.x) && isNumber(botPosition.y)
     ? { x: round(botPosition.x), y: round(botPosition.y) }
     : undefined;
-  const locationUnavailable = t("FarmBot position unknown.");
+  const locationUnavailable = t("Holda position unknown.");
   const decodeHtmlEntities = (value: string) => {
     const textarea = document.createElement("textarea");
     textarea.innerHTML = value;
@@ -2548,7 +2548,7 @@ const addCommands = (props: BuildCommandProps): Command[] => {
         ...localized("Add at current location"),
         aliases: [
           `plant ${crop.name} here`,
-          `${crop.name} at FarmBot`,
+          `${crop.name} at Holda`,
           `${crop.name} at current position`,
         ],
         unavailable: botXY ? undefined : locationUnavailable,
@@ -3006,7 +3006,7 @@ const lowerSettingsPriority = (command: Command): Command =>
 export const buildCommands = (props: BuildCommandProps): Command[] => [
   ...panelCommands(props),
   shopCommand(),
-  followFarmBotCommand(),
+  followHoldaCommand(),
   logoutCommand(),
   ...popupCommands(props),
   timeTravelCommand(props),

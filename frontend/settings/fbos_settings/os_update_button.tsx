@@ -146,7 +146,7 @@ const onError = (reason: string) => (dispatch: Function) => {
     && console.error("No releases found for platform and channel.");
   // 404: no new or old releases available on channel
   // 422: either invalid platform or no new releases available (up to date)
-  console.error(t("Could not download FarmBot OS update information."));
+  console.error(t("Could not download Holda OS update information."));
   dispatch({
     type: Actions.FETCH_OS_UPDATE_INFO_OK,
     payload: { version: undefined },

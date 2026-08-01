@@ -84,7 +84,7 @@ export const StatusDetails = (props: StatusDetailsProps) => {
     <label>{t("Web App")}</label>
     <Help text={ToolTips.RPI_VALUE_API} />
     <p>{selection ? RPI_OPTIONS[selection].label : t("none")}</p>
-    <label>{t("FarmBot OS")}</label>
+    <label>{t("Holda OS")}</label>
     <Help text={ToolTips.RPI_VALUE_FBOS} />
     <p>{TARGETS(firmwareHardware)["" + target] || t("unknown")}</p>
   </div>;

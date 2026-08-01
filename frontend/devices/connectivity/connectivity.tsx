@@ -88,7 +88,7 @@ export class Connectivity
           hover={this.hover}
           hoveredConnection={this.state.hoveredConnection} />
         <div className="fbos-info">
-          <label>{t("FarmBot Info")}</label>
+          <label>{t("Holda Info")}</label>
           <p><b>{t("Device ID")}: </b>{id}</p>
           <p><b>{t("Order number")}: </b>
             {fb_order_number || t("Unset")}</p>
@@ -148,7 +148,7 @@ export class Connectivity
     const wifi = isWifi(wifi_level, wifi_level_percent);
     return <div className={"network-wrapper grid-3-col"}>
       <div className="fbos-info">
-        <label>{t("FarmBot Connection")}</label>
+        <label>{t("Holda Connection")}</label>
         <p><b>{t("Connection type")}: </b>{wifi ? "WiFi" : t("Unknown")}</p>
         <WiFiStrengthDisplay wifiStrength={wifi_level}
           wifiStrengthPercent={wifi_level_percent} />
@@ -162,7 +162,7 @@ export class Connectivity
         <PortRow port={"80 - HTTP"} status={flags["userAPI"]} />
         <PortRow port={"443 - HTTPS"} status={flags["userAPI"]} />
         <PortRow port={"3002 - WebSockets"} status={flags["userMQTT"]} />
-        <i style={{ marginTop: "1rem" }}>{t("FarmBot")}</i>
+        <i style={{ marginTop: "1rem" }}>{t("Holda")}</i>
         <PortRow port={"80 - HTTP"} status={flags["botAPI"]} />
         <PortRow port={"443 - HTTPS"} status={flags["botAPI"]} />
         <PortRow port={"8883 - MQTT"} status={flags["botMQTT"]} />

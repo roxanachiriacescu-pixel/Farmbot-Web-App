@@ -377,7 +377,7 @@ export const getWarningLinesContent =
             ]
         };
       case CurveType.height: return {
-        title: t("Plant may exceed the distance between the soil and FarmBot"),
+        title: t("Plant may exceed the distance between the soil and Holda"),
         lines: [
           { value: gantryClearance, text: t("Gantry main beam"), style: "high" },
           { value: utmClearance, text: t("Fully raised tool head"), style: "low" },

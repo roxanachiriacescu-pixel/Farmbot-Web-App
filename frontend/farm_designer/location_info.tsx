@@ -478,7 +478,7 @@ const LocationActions = (props: LocationActionsProps) => {
       <p>{round(distance(
         { x: props.currentBotLocation.x, y: props.currentBotLocation.y },
         { x: props.chosenLocation.y, y: props.chosenLocation.y },
-      ))}mm {t("from")} {t("FarmBot's current position")}
+      ))}mm {t("from")} {t("Holda's current position")}
         &nbsp;({props.currentBotLocation.x}
         &nbsp;{props.currentBotLocation.y}
         &nbsp;{props.currentBotLocation.z})</p>}

@@ -229,7 +229,7 @@ const ConnectionStatus = (props: ConnectionStatusProps) => {
           <DiagnosisSaucer {...data.flags}
             className={"nav"}
             syncStatus={sync_status} />
-          {!isMobile() && <p>{props.device.body.name || t("FarmBot")}</p>}
+          {!isMobile() && <p>{props.device.body.name || t("Holda")}</p>}
         </button>}
         content={<ErrorBoundary>
           <Connectivity
@@ -366,7 +366,7 @@ export class RawNavBar extends React.Component<NavBarProps, Partial<NavBarState>
         target={<button type="button"
           className={`nav-coordinates ${isOpen ? "hover" : ""}`}
           onClick={this.togglePopup("controls")}
-          title={t("FarmBot position (X, Y, Z)")}
+          title={t("Holda position (X, Y, Z)")}
           aria-expanded={isOpen}>
           <img
             src={TAB_ICON[Panel.Controls]}

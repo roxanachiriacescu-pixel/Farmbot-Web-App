@@ -38,7 +38,7 @@ export const EditSoilHeight = (props: EditSoilHeightProps) => {
   const { sourceFbosConfig } = props;
   return <div className={"grid soil-height-summary"}>
     <Row className="grid-exp-1">
-      {sourceFbosConfig && <label>{t("FarmBot soil z")}</label>}
+      {sourceFbosConfig && <label>{t("Holda soil z")}</label>}
       {sourceFbosConfig && <BlurableInput type="number"
         onCommit={e =>
           props.dispatch(setSoilHeight(parseFloat(e.currentTarget.value)))}

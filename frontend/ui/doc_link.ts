@@ -11,8 +11,8 @@ const _DOC_SLUGS = {
   "measure-soil-height": "Measure Soil Height",
   "the-farmbot-web-app": "Web App",
   "farmware": "Farmware",
-  "farmbot-os": "Installing FarmBot OS",
-  "connecting-farmbot-to-the-internet": "Connecting FarmBot to the Internet",
+  "farmbot-os": "Installing Holda OS",
+  "connecting-farmbot-to-the-internet": "Connecting Holda to the Internet",
   "for-it-security-professionals": "For IT Security Professionals",
 };
 
@@ -21,7 +21,7 @@ const _DEV_DOC_SLUGS = {
 };
 
 const _GENESIS_DOC_SLUGS = {
-  "why-is-my-farmbot-not-moving": "Why is my FarmBot not moving?",
+  "why-is-my-farmbot-not-moving": "Why is my Holda not moving?",
 };
 
 export type DocSlug = keyof typeof _DOC_SLUGS;

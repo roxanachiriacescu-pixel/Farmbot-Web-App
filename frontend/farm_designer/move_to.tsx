@@ -189,8 +189,8 @@ export class GoToThisLocationButton
     const target = this.props.locationCoordinate;
     const { arduinoBusy, botOnline, dispatch, defaultAxes } = this.props;
     const unavailableContent = () => {
-      if (arduinoBusy) { return t("FarmBot is busy"); }
-      if (!botOnline) { return t("FarmBot is offline"); }
+      if (arduinoBusy) { return t("Holda is busy"); }
+      if (!botOnline) { return t("Holda is offline"); }
     };
     const unavailable = arduinoBusy || !botOnline;
     const classes = (className: string) => [

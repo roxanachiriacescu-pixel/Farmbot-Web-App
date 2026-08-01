@@ -45,7 +45,7 @@ export const ChangeOwnershipForm = () => {
       <div className={"change-ownership-grid"}>
         <div>
           <p>
-            {t("Change the account FarmBot is connected to.")}
+            {t("Change the account Holda is connected to.")}
           </p>
           <div className="change-ownership-grid">
             <label htmlFor={"email"}>

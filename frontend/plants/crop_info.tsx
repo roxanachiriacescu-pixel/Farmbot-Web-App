@@ -241,7 +241,7 @@ const AddPlantHereButton = (props: AddPlantHereButtonProps) => {
   return <button className="fb-button gray no-float"
     title={t("Add plant at current location")}
     disabled={!botXY} onClick={click}>
-    {t("Add plant at current FarmBot location {{coordinate}}",
+    {t("Add plant at current Holda location {{coordinate}}",
       { coordinate: botXYLabel })}
   </button>;
 };

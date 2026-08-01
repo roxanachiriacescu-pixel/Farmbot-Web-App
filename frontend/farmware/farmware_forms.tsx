@@ -109,7 +109,7 @@ export function ConfigFields(props: ConfigFieldsProps): React.ReactNode {
             value={value}
             saveEnv={saveEnv} />
           {botValue && !(value == botValue) &&
-            <i className="fa fa-refresh" title={t("update to FarmBot's value")}
+            <i className="fa fa-refresh" title={t("update to Holda's value")}
               onClick={() => saveEnv(botValue)} />}
           {!(value == config.value) &&
             <i className="fa fa-times-circle" title={t("reset to default")}

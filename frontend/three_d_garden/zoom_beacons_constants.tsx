@@ -39,7 +39,7 @@ export const FOCI = (config: Config, configPosition: PositionConfig): Focus[] =>
       info: {
         description: <div className={"description-wrapper"}>
           <p>
-            FarmBot is well suited to growing a polycrop of many common
+            Holda is well suited to growing a polycrop of many common
             garden veggies at the same time. Crops we&apos;ve had success with include
             Bok Choy, Lettuces, Radish, Beets, Chard, Arugula, Broccoli, and much
             more.
@@ -48,7 +48,7 @@ export const FOCI = (config: Config, configPosition: PositionConfig): Focus[] =>
             By placing vining and other indeterminate crops near the ends
             of the bed and training them outwards, you can easily double or
             triple the area your plants can utilize while still being maintained
-            by the FarmBot.
+            by the Holda.
           </p>
         </div>,
         position: [
@@ -95,7 +95,7 @@ export const FOCI = (config: Config, configPosition: PositionConfig): Focus[] =>
       info: {
         description: <div className={"description-wrapper"}>
           <p>
-            FarmBot comes with four tools to cover the basics of food production:
+            Holda comes with four tools to cover the basics of food production:
             the Seed Injector, Watering Nozzle, Soil Sensor, and Rotary Tool.
           </p>
           <p>
@@ -154,14 +154,14 @@ export const FOCI = (config: Config, configPosition: PositionConfig): Focus[] =>
       label: "Universal Tool Mounting",
       info: {
         description: <div className={"description-wrapper"}>
-          <p>The Universal Tool Mount (UTM) allows FarmBot to automatically
+          <p>The Universal Tool Mount (UTM) allows Holda to automatically
             switch between a variety of lightweight
             tools — whichever one is appropriate for the task at hand (seeding,
             watering, weeding, etc). Using three neodymium ring magnets, tools
             are magnetically held in place during operation, but can be
             automatically dismounted in a toolbay when not in use.</p>
 
-          <p>Once a tool has been mounted, FarmBot can power it up and communicate
+          <p>Once a tool has been mounted, Holda can power it up and communicate
             with it using the 12 gold-plated pogo pins inside the UTM. The stock
             connections include ground, 5v, 24v, as well as analog and digital I/O.
             Meanwhile, the remaining electrical connections are available for
@@ -169,7 +169,7 @@ export const FOCI = (config: Config, configPosition: PositionConfig): Focus[] =>
             implements. Additionally, the three liquid/gas ports provide water,
             vacuum air, and an expansion port for custom applications.</p>
 
-          <p>Because FarmBot is 100% open-source, you can download our
+          <p>Because Holda is 100% open-source, you can download our
             CAD models to start designing your own compatible creations.
             Tools can be 3D printed and wired up with common electrical hardware in
             just an afternoon.</p>
@@ -218,7 +218,7 @@ export const FOCI = (config: Config, configPosition: PositionConfig): Focus[] =>
       info: {
         description: <div className={"description-wrapper"}>
           <p>
-            FarmBot is powered by the workhorses of the DIY movement:
+            Holda is powered by the workhorses of the DIY movement:
             the Raspberry Pi and a custom designed Arduino we call the
             <i>Farmduino</i>.
           </p>
@@ -273,24 +273,24 @@ export const FOCI = (config: Config, configPosition: PositionConfig): Focus[] =>
       info: {
         description: <div className={"description-wrapper"}>
           <p>
-            FarmBot must be plugged into a standard 100-265V AC outlet.
+            Holda must be plugged into a standard 100-265V AC outlet.
             The power cable comes with a standard US 3-prong plug (NEMA 5-15P), which
             can be used with a plug adapter for installations outside the US.
           </p>
           <p>
-            FarmBot can optionally be powered by
+            Holda can optionally be powered by
             a <a href={ExternalUrl.solar} target="_blank" rel="noreferrer">solar
               system</a> with the appropriate battery and inverter. These
             components may be purchased from a 3rd party.
           </p>
           <p>
-            FarmBot&apos;s water system has a 3/4″ female Garden Hose Thread (GHT)
+            Holda&apos;s water system has a 3/4″ female Garden Hose Thread (GHT)
             connection, meaning you can take a standard US garden hose and
-            screw it into your FarmBot. You will need to provide a hose of
+            screw it into your Holda. You will need to provide a hose of
             the appropriate length.
           </p>
           <p>
-            FarmBot requires an internet connection and supports both WiFi
+            Holda requires an internet connection and supports both WiFi
             and Ethernet. You may need to reposition your WiFi router or
             install a repeater to ensure a reliable connection.
           </p>
@@ -339,7 +339,7 @@ export const FOCI = (config: Config, configPosition: PositionConfig): Focus[] =>
       info: {
         description: <div className={"description-wrapper"}>
           <p>
-            All FarmBots must be mounted to a <a href={ExternalUrl.raisedBed}
+            All Holdas must be mounted to a <a href={ExternalUrl.raisedBed}
               target="_blank" rel="noreferrer">raised
               bed</a> or similar infrastructure. Neither materials for the bed nor
             soil are included with the kits because every installation will be

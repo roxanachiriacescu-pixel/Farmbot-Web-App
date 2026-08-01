@@ -85,7 +85,7 @@ const LogsRow = (props: LogsRowProps) => {
       {!logVersionMatch(tlog, props.fbosVersion) &&
         <i className={"fa fa-exclamation-triangle"}
           style={{ color: "gray", marginLeft: "0.5rem" }}
-          title={t("Log not sent by current version of FarmBot OS.")} />}
+          title={t("Log not sent by current version of Holda OS.")} />}
     </td>
   </tr>;
 };

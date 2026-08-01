@@ -39,7 +39,7 @@ import { DemoMovementCommand } from "../demo/lua_runner/interfaces";
 
 const ON = 1, OFF = 0;
 export type ConfigKey = keyof McuParams;
-// Already filtering messages in FarmBot OS and the API- this is just for
+// Already filtering messages in Holda OS and the API- this is just for
 // an additional layer of safety.
 const BAD_WORDS = ["WPA", "PSK", "PASSWORD", "NERVES"];
 const MESSAGE: keyof Log = "message";
@@ -251,7 +251,7 @@ export function sync(): Thunk {
       if (currentFBOSversion) {
         badVersion();
       } else {
-        info(t("FarmBot is not connected."), {
+        info(t("Holda is not connected."), {
           title: t("Disconnected"), color: "red",
         });
       }

@@ -67,7 +67,7 @@ export const FirmwareHardwareStatusDetails =
       <label>{t("Web App")}</label>
       <Help text={ToolTips.FIRMWARE_VALUE_API} />
       <p>{lookup(props.apiFirmwareValue) || t("unknown")}</p>
-      <label>{t("FarmBot OS")}</label>
+      <label>{t("Holda OS")}</label>
       <Help text={ToolTips.FIRMWARE_VALUE_FBOS} />
       <p>{lookup(props.botFirmwareValue) || t("unknown")}</p>
       <label>{t("Arduino/Farmduino")}</label>

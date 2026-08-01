@@ -48,7 +48,7 @@ export function Apology(_: {}) {
         <li>
           <span>
             Send a report to our developer team via the&nbsp;
-            <a href={ExternalUrl.softwareForum}>FarmBot software forum</a>.
+            <a href={ExternalUrl.softwareForum}>Holda software forum</a>.
             Including additional information (such as steps leading up
             to the error) helps us identify solutions more quickly.
           </span>

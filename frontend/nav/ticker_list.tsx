@@ -50,7 +50,7 @@ const getFirstTickerLog = (
   lastSeen: number,
 ): TaggedLog => {
   if (!botOnline) {
-    return generateFallbackLog("bot_offline", t("FarmBot is offline"), lastSeen);
+    return generateFallbackLog("bot_offline", t("Holda is offline"), lastSeen);
   }
   if (logs.length == 0) {
     return generateFallbackLog("no_logs_yet", t("No logs yet."));

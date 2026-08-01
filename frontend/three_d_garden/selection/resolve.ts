@@ -300,7 +300,7 @@ const resolveElectronicsObject = (
   return {
     kind: "electronics",
     selection,
-    name: props.deviceAccount?.body.name || t("FarmBot"),
+    name: props.deviceAccount?.body.name || t("Holda"),
     worldPosition: [worldPosition.x, worldPosition.y, worldPosition.z],
     popupPosition: [worldPosition.x, worldPosition.y,
       worldPosition.z + FIXED_POPUP_Z_OFFSET],

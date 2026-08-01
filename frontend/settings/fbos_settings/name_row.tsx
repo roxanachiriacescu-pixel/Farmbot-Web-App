@@ -15,7 +15,7 @@ export const NameRow = (props: NameRowProps) =>
       </label>
       <input id={"device-name"}
         className={getModifiedClassNameSpecifyDefault(
-          props.device.body.name, "FarmBot",
+          props.device.body.name, "Holda",
         )}
         onChange={e => props.dispatch(edit(props.device, {
           name: e.currentTarget.value

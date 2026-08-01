@@ -52,7 +52,7 @@ export class LastSeen extends React.Component<LastSeenProps, {}> {
 
     if (this.lastSeen) {
       const { timeSettings } = this.props;
-      return t("FarmBot was last seen {{ lastSeen }}", {
+      return t("Holda was last seen {{ lastSeen }}", {
         lastSeen: formatTime(moment(this.lastSeen), timeSettings, "MMMM D, YYYY")
       });
     } else {

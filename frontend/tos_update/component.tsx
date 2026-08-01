@@ -95,7 +95,7 @@ export class TosUpdate extends React.Component<{}, Partial<State>> {
         <p>
           {t("Please send us an email at contact@farm.bot or see the ")}
           <a href={ExternalUrl.softwareForum}>
-            {t("FarmBot forum.")}
+            {t("Holda forum.")}
           </a>
         </p>
       </div>;

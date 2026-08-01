@@ -67,7 +67,7 @@ export function Diagnosis(props: DiagnosisProps) {
             props.dispatch(setPanelOpen(true));
             navigate(linkToSetting(DeviceSetting.farmbotOS));
           }}>
-          <u>{t("upgrade FarmBot OS")}</u>
+          <u>{t("upgrade Holda OS")}</u>
         </a>
         &nbsp;{t("before troubleshooting.")}
       </p>

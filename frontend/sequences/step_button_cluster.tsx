@@ -73,7 +73,7 @@ const COMMANDS = (farmwareData: FarmwareData | undefined): CommandItem[] => [
     step: {
       kind: "send_message",
       args: {
-        message: t("FarmBot is at position ") + "{{ x }}, {{ y }}, {{ z }}.",
+        message: t("Holda is at position ") + "{{ x }}, {{ y }}, {{ z }}.",
         message_type: MessageType.success
       }
     },

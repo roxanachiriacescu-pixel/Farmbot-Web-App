@@ -170,7 +170,7 @@ const isOSUpdateJob = (jobType: string, jobTitle: string) =>
 export const jobNameLookup = (job: JobProgressWithTitle | undefined) => {
   if (!job) { return ""; }
   if (isImageUploadJob(job.type, job.title)) { return t("Photo upload"); }
-  if (isOSUpdateJob(job.type, job.title)) { return t("FarmBot OS update"); }
+  if (isOSUpdateJob(job.type, job.title)) { return t("Holda OS update"); }
   return job.title;
 };
 

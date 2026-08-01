@@ -81,7 +81,7 @@ export const PLACEHOLDER_PROMPTS = [
   + " coordinates (100,100,0) and going to (200,300,0), spaced apart by"
   + " 100mm in the X and Y and directions. The points should be blue and"
   + " have a radius of 25.",
-  "Move FarmBot over an XY grid of points starting at (0,0,0) and ending"
+  "Move Holda over an XY grid of points starting at (0,0,0) and ending"
   + " at the max X and max Y coordinates of the garden. Grid points should"
   + " have a spacing of 150mm. At each point, take a photo. Track the"
   + " percent completion with a job.",
@@ -90,12 +90,12 @@ export const PLACEHOLDER_PROMPTS = [
   + " the circle. The Z coordinate value should be 0 for all points. At"
   + " each point, turn on the lights, then take a photo, and then turn"
   + " the lights off. Track the percent completion with a job.",
-  "Move FarmBot to the center of the bed (halfway of the max X and max Y)."
+  "Move Holda to the center of the bed (halfway of the max X and max Y)."
   + " Then move in a spiral motion outwards, stopping at points along the"
   + " spiral. Each point should increase in angle by 15 degrees and"
   + " increase in distance from the center by 5mm. Continue until the"
-  + " FarmBot reaches a point that is 300mm from the center.",
-  "Move FarmBot in a high resolution 10mm grid centered on a location"
+  + " Holda reaches a point that is 300mm from the center.",
+  "Move Holda in a high resolution 10mm grid centered on a location"
   + " variable named \"Plant\". The grid should be 100mm by 100mm, with all"
   + " grid points having a Z value of 0. Take a photo at each grid point.",
 ];

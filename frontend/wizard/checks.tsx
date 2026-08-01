@@ -326,7 +326,7 @@ export const DownloadImager = () =>
 export const NetworkRequirementsLink = () =>
   <a href={docLink("for-it-security-professionals")}
     target={"_blank"} rel={"noreferrer"}>
-    {t("FarmBot Network Requirements")}
+    {t("Holda Network Requirements")}
   </a>;
 
 export const FlashFirmware = (props: WizardOutcomeComponentProps) => {
@@ -491,7 +491,7 @@ export const CheckForResistance = () =>
     {t("Check hardware for resistance.")}&nbsp;
     {t("Refer to the")}&nbsp;
     <a href={genesisDocLink("why-is-my-farmbot-not-moving")}>
-      {t("Why is my FarmBot not moving?")}
+      {t("Why is my Holda not moving?")}
     </a>
     &nbsp;{t("documentation page for adjustment suggestions.")}
   </p>;

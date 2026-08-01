@@ -86,7 +86,7 @@ export const LogsFilterMenu = (props: LogsFilterMenuProps) => {
           props.state.currentFbosOnly ? "green" : "red",
           getModifiedClassNameSpecifyModified(props.state.currentFbosOnly),
         ].join(" ")}
-        title={t("Only show logs sent from current FarmBot OS version.")}
+        title={t("Only show logs sent from current Holda OS version.")}
         onClick={props.toggleCurrentFbosOnly}>
         {props.state.currentFbosOnly ? t("yes") : t("no")}
       </button>

@@ -21,7 +21,7 @@ export const cameraCalibrated = (env: UserEnv): boolean =>
 export const cameraBtnProps = (env: UserEnv, botOnline: boolean) => {
   const disabled = cameraDisabled(env) || !botOnline;
   const noCameraTitle = t(Content.NO_CAMERA_SELECTED);
-  const offlineTitle = botOnline ? "" : t("FarmBot is offline");
+  const offlineTitle = botOnline ? "" : t("Holda is offline");
   const title = cameraDisabled(env) ? noCameraTitle : offlineTitle;
   const noCameraMsg = t(ToolTips.SELECT_A_CAMERA);
   return disabled

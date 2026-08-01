@@ -80,9 +80,9 @@ export class DirectionButton
     const buttonId = axis + this.props.direction;
     this.props.setActivePopover(buttonId);
     const text = () => {
-      if (locked) { return t("FarmBot is locked"); }
-      if (arduinoBusy) { return t("FarmBot is busy"); }
-      if (!botOnline) { return t("FarmBot is offline"); }
+      if (locked) { return t("Holda is locked"); }
+      if (arduinoBusy) { return t("Holda is busy"); }
+      if (!botOnline) { return t("Holda is offline"); }
       if (directionDisabled(this.props) && this.distance > 0) {
         return t("Axis is already at maximum position");
       }

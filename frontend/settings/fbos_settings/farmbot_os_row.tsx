@@ -31,7 +31,7 @@ export const getOsReleaseNotesForVersion = (
     : latestNote;
   const releaseNotes = getNote(majorVersion) || fallbackNotes || "";
   const notes = stripVersion(releaseNotes) || t("Could not get release notes.");
-  const heading = "FarmBot OS v" + majorVersion;
+  const heading = "Holda OS v" + majorVersion;
   return { heading, notes };
 };
 

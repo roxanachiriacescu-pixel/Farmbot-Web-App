@@ -74,7 +74,7 @@ export const SupportPanel = () =>
           {t(Content.FORUM_SUPPORT)}
           <a className={"inline"}
             href={ExternalUrl.softwareForum} target={"_blank"} rel={"noreferrer"}>
-            {t("FarmBot forum")}
+            {t("Holda forum")}
           </a>.
         </p>
       </div>
