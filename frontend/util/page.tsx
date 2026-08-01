@@ -16,11 +16,11 @@ export function updatePageInfo(pageName: string, panel?: string) {
     pageName = "Farm Designer";
     if (panel) {
       document.title =
-        `${t(capitalize(pageName))}: ${t(capitalize(panel))} - FarmBot`;
+        `${t(capitalize(pageName))}: ${t(capitalize(panel))} - Holda`;
       return;
     }
   }
-  document.title = `${t(capitalize(pageName))} - FarmBot`;
+  document.title = `${t(capitalize(pageName))} - Holda`;
   // Possibly add meta "content" here dynamically as well
 }
 
