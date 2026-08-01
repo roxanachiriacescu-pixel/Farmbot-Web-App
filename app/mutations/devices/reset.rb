@@ -20,7 +20,7 @@ module Devices
 
     def run_it
       ActiveRecord::Base.transaction do
-        device.update!(name: "FarmBot",
+        device.update!(name: "Holda",
                        mounted_tool_id: nil,
                        setup_completed_at: nil,
                        account_seeded_at: nil)

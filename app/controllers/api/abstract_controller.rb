@@ -219,7 +219,7 @@ module Api
     EXPECTED_VER = Gem::Version.new(GlobalConfig.dump["MINIMUM_FBOS_VERSION"])
 
     def bad_version
-      render json: { error: "Upgrade to latest FarmBot OS" }, status: 426
+      render json: { error: "Upgrade to latest Holda OS" }, status: 426
     end
 
     # Try to extract FarmBot OS version from user agent.
