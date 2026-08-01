@@ -26,11 +26,11 @@ const PAGES = (): Pages => ({
     icon: Icon.developer,
   },
   genesis: {
-    title: t("Genesis Documentation"),
+    title: t("Holda One Pro Documentation"),
     iconPath: FilePath.image("favicon", "png"),
   },
   express: {
-    title: t("Express Documentation"),
+    title: t("Holda One Documentation"),
     iconPath: FilePath.image("favicon", "png"),
   },
   business: {
