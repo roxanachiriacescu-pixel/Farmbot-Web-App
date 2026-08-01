@@ -22,6 +22,8 @@ latest_corpus.ts
 log/
 node_modules
 package-lock.json
+.bundle
+vendor/bundle
 public/assets/
 public/direct_upload/temp/*.jpg
 public/dist
