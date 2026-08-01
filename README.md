@@ -1,11 +1,19 @@
-# FarmBot Web App
+# Holda
 
-[![codebeat badge](https://codebeat.co/badges/7f81859b-67fe-4bdb-b56f-050bfed35e9c)](https://codebeat.co/projects/github-com-farmbot-farmbot-web-app-staging)
-[![codecov](https://codecov.io/gh/FarmBot/Farmbot-Web-App/branch/staging/graph/badge.svg)](https://codecov.io/gh/FarmBot/Farmbot-Web-App)
-[![Coverage Status](https://coveralls.io/repos/github/FarmBot/Farmbot-Web-App/badge.svg)](https://coveralls.io/github/FarmBot/Farmbot-Web-App)
-[![Maintainability](https://api.codeclimate.com/v1/badges/74091163d8a02bb8988f/maintainability)](https://codeclimate.com/github/FarmBot/Farmbot-Web-App/maintainability)
+<!-- TODO(holda): these badges pointed at FarmBot Inc's own CI dashboards
+     (codebeat/codecov/coveralls/codeclimate) and have been removed rather
+     than left broken/misattributed. Re-add once Holda has its own CI
+     coverage/quality accounts wired up. -->
 
-This codebase contains FarmBot's web based user interface, a RESTful JSON API, and a Dockerized MQTT server. The API stores data such as user account information, farm designs, sequences, authorization tokens, and a variety of other resources. The MQTT server facilitates realtime messaging from the browser to the device.
+This codebase contains Holda's web based user interface, a RESTful JSON API, and a Dockerized MQTT server. The API stores data such as user account information, farm designs, sequences, authorization tokens, and a variety of other resources. The MQTT server facilitates realtime messaging from the browser to the device.
+
+<!-- TODO(holda): this whole "I own a FarmBot" section and the support/
+     hosting-policy paragraphs below it describe FarmBot Inc's actual
+     hosted-service offering (my.farm.bot) and support policy. Left
+     unchanged rather than inventing a "my.holda.ro"-style claim or a
+     support policy Holda hasn't actually decided on. Needs real content
+     once Holda's own hosting/support model for Holda One / Holda One Pro
+     owners is decided. -->
 
 ## I own a FarmBot, do I need this?
 
@@ -42,6 +50,11 @@ We update `main` roughly every 2 to 4 weeks. If you self host the application yo
 
 See our documentation for a list of [example API requests and responses](https://developer.farm.bot/docs/api-docs). If you wish to write an add-on application that uses the FarmBot API, please let us know in an issue. We are happy to answer any specific questions you may have.
 
+<!-- TODO(holda): the Contributing section below links to FarmBot Inc's
+     actual GitHub repo/issue tracker, developer docs, and vulnerability
+     disclosure address. Left unchanged pending a decision on Holda's own
+     repo URL, docs site, and security contact rather than guessing them. -->
+
 # Contributing
 
 There are many ways in which you can contribute to the FarmBot web app:
@@ -60,7 +73,7 @@ There are many ways in which you can contribute to the FarmBot web app:
 
 ## Translating the web app
 
-Thanks for your interest in internationalizing the FarmBot web app! To add translations:
+Thanks for your interest in internationalizing the Holda web app! To add translations:
 
 1. Fork this repo
 0. Navigate to `/public/app-resources/languages` and run the command `bun _helper.js yy` where `yy` is your language's [language code](http://www.science.co.il/Language/Locale-codes.php). Eg: `ru` for Russian.
