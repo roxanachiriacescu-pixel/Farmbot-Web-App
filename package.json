@@ -1,7 +1,7 @@
 {
   "name": "farmbot-web-frontend",
   "version": "1.1.0",
-  "description": "Farmbot web frontend.",
+  "description": "Holda web frontend.",
   "engines": {
     "browsers": "defaults",
     "bun": "1.x"
@@ -9,7 +9,7 @@
   "packageManager": "bun@1.x",
   "repository": {
     "type": "git",
-    "url": "https://github.com/farmbot/farmbot-web-app"
+    "url": "https://github.com/roxanachiriacescu-pixel/Farmbot-Web-App"
   },
   "scripts": {
     "test-slow": "bash scripts/test_slow.sh && bun run coverage-html",
@@ -32,9 +32,9 @@
     "linters": "X=0;bun run typecheck;X=$(($X+$?));bun run dev-typecheck;X=$(($X+$?));bun run eslint;X=$(($X+$?));bun run sass-lint;X=$(($X+$?));bun run sass-check;X=$(($X+$?));bun run translation-check;X=$(($X+$?));[ $X = 0 ]"
   },
   "keywords": [
-    "farmbot"
+    "holda"
   ],
-  "author": "farmbot.io",
+  "author": "Holda Robotics",
   "license": "MIT",
   "browser": {
     "mqtt": "mqtt/dist/mqtt.esm.js"
