@@ -33,6 +33,7 @@ gem "bigdecimal"
 gem "mutex_m"
 gem "tsort"
 gem "irb"
+gem "fiddle"
 
 group :development, :test do
   gem "climate_control"
@@ -51,6 +52,7 @@ group :development, :test do
   gem "rubocop"
   gem "rubocop-rails"
   gem "brakeman"
+  gem "puma" # Passenger does not support Windows; used for local dev/test only.
 end
 
 gem "passenger"
