@@ -11,7 +11,7 @@ describe "news_user_report.rake" do
     it "builds the daily report email" do
       mail = NewUserReportMailer.daily_report("hello", ["test@example.com"])
 
-      expect(mail.subject).to eq("Daily Report: New FarmBot Setups")
+      expect(mail.subject).to eq("Daily Report: New Holda Setups")
       expect(mail.to).to eq(["test@example.com"])
       expect(mail.from).to eq(["do-not-reply@#{ENV["API_HOST"]}"])
       expect(mail.body.encoded).to include("hello")

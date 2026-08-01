@@ -33,9 +33,9 @@ RSpec.describe "layouts/dashboard.html.erb", type: :view do
   end
 
   [
-    { host: "my.farm.bot",      name: "FarmBot",          icon: "pwa_icon_production.png" },
-    { host: "staging.farm.bot", name: "FarmBot Staging",  icon: "pwa_icon_staging.png"   },
-    { host: "localhost",        name: "FarmBot Local",    icon: "pwa_icon_local.png"     }
+    { host: "my.farm.bot",      name: "Holda",          icon: "pwa_icon_production.png" },
+    { host: "staging.farm.bot", name: "Holda Staging",  icon: "pwa_icon_staging.png"   },
+    { host: "localhost",        name: "Holda Local",    icon: "pwa_icon_local.png"     }
   ].each do |cfg|
     it "includes correct manifest for #{cfg[:host]}" do
       render_with_api_host(cfg[:host])

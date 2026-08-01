@@ -26,7 +26,7 @@ describe InactiveAccountJob do
     expect(no.reload.inactivity_warning_sent_at).to be(nil)
     expect(mail).to be_kind_of(Mail::Message)
     expect(mail.to).to include(yes.email)
-    subject = "Your FarmBot account will be deleted due to inactivity"
+    subject = "Your Holda account will be deleted due to inactivity"
     expect(mail.subject).to include(subject)
     expect(mail.body.encoded).to include("in about 3 years.")
     expect(mail.body.encoded).to include(yes.email)

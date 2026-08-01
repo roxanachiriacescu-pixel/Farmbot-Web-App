@@ -39,7 +39,7 @@ describe Api::DevicesController do
           fail(did_not_delete)
         end
       end
-      expect(device.reload.name).to eq("FarmBot")
+      expect(device.reload.name).to eq("Holda")
       expect(device.alerts.count).to eq(1)
       expect(device.token_issuances.count).to_not be > 1
     end

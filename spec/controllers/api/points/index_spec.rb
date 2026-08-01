@@ -146,7 +146,7 @@ describe Api::PointsController do
       FactoryBot.create_list(:generic_pointer, 1, device: device)
       get :index
       expect(response.status).to eq(426)
-      expect(json[:error]).to include("Upgrade to latest FarmBot OS")
+      expect(json[:error]).to include("Upgrade to latest Holda OS")
     end
 
     it "marks device as seen when they download points" do
