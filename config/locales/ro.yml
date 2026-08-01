@@ -1,0 +1,5 @@
+ro:
+  activerecord:
+    attributes:
+      device:
+        fb_order_number: "Număr comandă"
