@@ -5,9 +5,9 @@ export namespace ToolTips {
 
   // Farm Designer: Groups
   export const SORT_DESCRIPTION =
-    trim(`When executing a sequence over a Group of locations, FarmBot will
+    trim(`When executing a sequence over a Group of locations, Holda will
     travel to each group member in the order of the chosen sort method.
-    If the random option is chosen, FarmBot will travel in a random order
+    If the random option is chosen, Holda will travel in a random order
     every time, so the ordering shown below will only be representative.`);
 
   export const CRITERIA_SELECTION_COUNT =
@@ -21,10 +21,10 @@ export namespace ToolTips {
 
   // Controls
   export const MOVE =
-    trim(`Use these manual control buttons to move FarmBot in realtime.
+    trim(`Use these manual control buttons to move Holda in realtime.
     Press the arrows for relative movements or type in new coordinates
     and press GO for an absolute movement.
-    Tip: Press the Home button when you are done so FarmBot is ready to
+    Tip: Press the Home button when you are done so Holda is ready to
     get back to work.`);
 
   export const WEBCAM =
@@ -32,12 +32,12 @@ export namespace ToolTips {
     Press the edit button to update and save your webcam URL.
     Note: Some webcam services do not allow webcam feeds to be embedded in
     other sites. If you see a web browser error after adding a webcam feed,
-    there is unfortunately nothing FarmBot can do to fix the problem.
+    there is unfortunately nothing Holda can do to fix the problem.
     Please contact your webcam's customer support to see if the security
     policy for embedding feeds into other sites can be changed.`);
 
   export const PERIPHERALS =
-    trim(`Use these toggle switches to control FarmBot's peripherals in
+    trim(`Use these toggle switches to control Holda's peripherals in
     realtime. To edit and create new peripherals, press the EDIT button.
     Make sure to turn things off when you're done!`);
 
@@ -45,13 +45,13 @@ export namespace ToolTips {
     trim(`Pin a sequence in the sequence editor to add it to this list.`);
 
   export const SENSORS =
-    trim(`Add sensors here to monitor FarmBot's sensors.
+    trim(`Add sensors here to monitor Holda's sensors.
     To edit and create new sensors, press the EDIT button.`);
 
   export const SENSOR_HISTORY =
     trim(`View and filter historical sensor reading data.`);
 
-  // FarmBot OS
+  // Holda OS
   export const VOLTAGE_STATUS =
     trim(`Raspberry Pi power status since last reboot. If supply voltage
     drops below the standard operational threshold the indicator will turn
@@ -59,14 +59,14 @@ export namespace ToolTips {
     indicating that a low voltage event has occurred. Low voltage may
     adversely affect WiFi and camera functionality.`);
 
-  // FarmBot OS Settings: Firmware
+  // Holda OS Settings: Firmware
   export const FIRMWARE_VALUE_API =
     trim(`Firmware value from your choice in the dropdown to the right, as
     understood by the Web App.`);
 
   export const FIRMWARE_VALUE_FBOS =
     trim(`Firmware value reported from the firmware, as understood by
-    FarmBot OS.`);
+    Holda OS.`);
 
   export const FIRMWARE_VALUE_MCU =
     trim(`Firmware value reported from the firmware.`);
@@ -77,13 +77,13 @@ export namespace ToolTips {
 
   export const RPI_VALUE_FBOS =
     trim(`Raspberry Pi model reported from your device, as understood by
-    FarmBot OS.`);
+    Holda OS.`);
 
   // Hardware Settings
   export const HW_SETTINGS =
     trim(`Caution: Changing these settings to extreme values can cause
     hardware malfunction. Make sure to test any new settings to verify
-    that everything works as expected before letting your FarmBot use
+    that everything works as expected before letting your Holda use
     them unsupervised.`);
 
   // Hardware Settings: Axes
@@ -104,7 +104,7 @@ export namespace ToolTips {
     determine maximum. Will set axis length value.`);
 
   export const SET_AXIS_LENGTH =
-    trim(`Set axis length to the current FarmBot axis position.`);
+    trim(`Set axis length to the current Holda axis position.`);
 
   export const SET_HOME_POSITION =
     trim(`Set the current location as home (zero).`);
@@ -158,7 +158,7 @@ export namespace ToolTips {
 
   export const GANTRY_HEIGHT =
     trim(`The **GANTRY HEIGHT** is the distance in millimeters between the
-    bottom of FarmBot's tool head and the bottom of the gantry main beam
+    bottom of Holda's tool head and the bottom of the gantry main beam
     when the Z-axis is fully raised. It is used to determine if a plant is
     too tall for the gantry to pass over it. (default: {{ distance }})`);
 
@@ -329,7 +329,7 @@ export namespace ToolTips {
 
   export const PIN_BINDING_WARNING =
     trim(`Warning: Binding to a pin without a physical button and
-    pull-down resistor connected may put FarmBot into an unstable state.`);
+    pull-down resistor connected may put Holda into an unstable state.`);
 
   // Hardware Settings: Pin Guard
   export const PIN_GUARD_PIN_NUMBER =
@@ -343,24 +343,24 @@ export namespace ToolTips {
 
   // Hardware Parameter Management
   export const PARAMETER_LOAD_PROGRESS =
-    trim(`FarmBot adoption of hardware parameter changes. Tip: If progress
+    trim(`Holda adoption of hardware parameter changes. Tip: If progress
     does not reach 100% within a few minutes, press RESEND.`);
 
   export const PARAMETER_IMPORT =
     trim(`Paste the output from EXPORT PARAMETERS into the text field and
-    press IMPORT to import new hardware parameters to your FarmBot.`);
+    press IMPORT to import new hardware parameters to your Holda.`);
 
   // Photos
   export const WEED_DETECTOR =
-    trim(`Detect weeds using FarmBot's camera and display them on the
+    trim(`Detect weeds using Holda's camera and display them on the
     Farm Designer map.`);
 
   export const SOIL_HEIGHT_DETECTION =
-    trim(`Detect soil height using FarmBot's camera and display the results
+    trim(`Detect soil height using Holda's camera and display the results
     on the Farm Designer map.`);
 
   export const CAMERA_CALIBRATION =
-    trim(`Calibrate FarmBot's camera for use in the weed detection software.`);
+    trim(`Calibrate Holda's camera for use in the weed detection software.`);
 
   export const RED_DOT_CAMERA_CALIBRATION =
     trim(`Genesis v1.2 through v1.4 bots did not include the camera
@@ -369,7 +369,7 @@ export namespace ToolTips {
 
   export const CAMERA_CALIBRATION_CARD_SHOP_LINK =
     trim(`Camera calibration cards are available in the shop and can be
-    used with any FarmBot version.`);
+    used with any Holda version.`);
 
   export const INVERT_HUE_SELECTION =
     trim(`Invert the range of hues selected. Typically used to select the
@@ -381,7 +381,7 @@ export namespace ToolTips {
     (default: {{ defaultSeparation }})`);
 
   export const CALIBRATION_OBJECT_AXIS =
-    trim(`The FarmBot axis along which the calibration objects are aligned.
+    trim(`The Holda axis along which the calibration objects are aligned.
     (default: {{ defaultAxis }})`);
 
   export const CAMERA_OFFSET =
@@ -392,19 +392,19 @@ export namespace ToolTips {
     (default: (x: {{ defaultX }}, y: {{ defaultY }}))`);
 
   export const IMAGE_BOT_ORIGIN_LOCATION =
-    trim(`FarmBot origin (home) location in images. If the origin does not
+    trim(`Holda origin (home) location in images. If the origin does not
     correspond to an image corner, rotate the camera until one does.
     (default: {{ defaultOrigin }})`);
 
   export const COORDINATE_SCALE =
-    trim(`Image pixel to FarmBot coordinate scale. Typically between
-    0.1 and 2, this value matches image scale with the FarmBot coordinate
+    trim(`Image pixel to Holda coordinate scale. Typically between
+    0.1 and 2, this value matches image scale with the Holda coordinate
     system. (default: {{ defaultScale }} (uncalibrated))`);
 
   export const IMAGE_ROTATION_ANGLE =
     trim(`Camera rotation in degrees. This value should be minimized
     (to near zero) by rotating the camera in its mount until it is aligned
-    with FarmBot's axes. (default: {{ defaultAngle }})`);
+    with Holda's axes. (default: {{ defaultAngle }})`);
 
   export const BLUR =
     trim(`Image blur kernel size. Must be an odd number greater than 1.
@@ -447,14 +447,14 @@ export namespace ToolTips {
 
   // Sequences
   export const SEQUENCE_COMMANDS =
-    trim(`These are the most basic commands FarmBot can execute. Drag and drop
+    trim(`These are the most basic commands Holda can execute. Drag and drop
     them to create sequences for watering, planting seeds, measuring soil
     properties, and more.`);
 
   export const SEQUENCE_EDITOR =
     trim(`Drag and drop commands here to create sequences for watering,
     planting seeds, measuring soil properties, and more.
-    Press the Test button to immediately try your sequence with FarmBot.
+    Press the Test button to immediately try your sequence with Holda.
     You can also edit, copy, and delete existing sequences;
     assign a color; and give your commands custom names.`);
 
@@ -467,55 +467,55 @@ export namespace ToolTips {
     trim(`No location selected. Using default value.`);
 
   export const COMPUTED_MOVE =
-    trim(`The Move step instructs FarmBot to move to the specified
+    trim(`The Move step instructs Holda to move to the specified
     coordinate or distance from its current location.`);
 
   export const AXIS_ORDER =
-    trim(`If "Safe Z" is chosen, FarmBot will: (1) Move Z to the Safe Z height,
+    trim(`If "Safe Z" is chosen, Holda will: (1) Move Z to the Safe Z height,
     (2) Move X and Y to the new location, and (3) Move Z to the new location.`);
 
   export const MOVE_ABSOLUTE =
-    trim(`The Move To step instructs FarmBot to move to the specified
-    coordinate regardless of the current position. For example, if FarmBot is
+    trim(`The Move To step instructs Holda to move to the specified
+    coordinate regardless of the current position. For example, if Holda is
     currently at X=1000, Y=1000 and it receives a Move To where X=0 and
-    Y=3000, then FarmBot will move to X=0, Y=3000. If FarmBot must move in
+    Y=3000, then Holda will move to X=0, Y=3000. If Holda must move in
     multiple directions, it will move diagonally. If you require straight
     movements along one axis at a time, use multiple Move To steps.
-    Offsets allow you to more easily instruct FarmBot to move to a location,
+    Offsets allow you to more easily instruct Holda to move to a location,
     but offset from it by the specified amount. For example moving to just
-    above where a peripheral is located. Using offsets lets FarmBot do the
+    above where a peripheral is located. Using offsets lets Holda do the
     math for you.`);
 
   export const MOVE_RELATIVE =
-    trim(`The Move Relative step instructs FarmBot to move the specified
-    distance from its current location. For example, if FarmBot is
+    trim(`The Move Relative step instructs Holda to move the specified
+    distance from its current location. For example, if Holda is
     currently at X=1000, Y=1000 and it receives a Move Relative
-    where X=0 and Y=3000, then FarmBot will move to X=1000, Y=4000.
-    If FarmBot must move in multiple directions, it will move diagonally.
+    where X=0 and Y=3000, then Holda will move to X=1000, Y=4000.
+    If Holda must move in multiple directions, it will move diagonally.
     If you require straight movements along one axis at a time,
     use multiple Move Relative steps. Move Relative steps should be
     preceded by a Move To step to ensure you are starting from a known
     location.`);
 
   export const WRITE_PIN =
-    trim(`The Control Peripheral step instructs FarmBot to set the
+    trim(`The Control Peripheral step instructs Holda to set the
     specified pin on the Arduino to the specified mode and value.
     Use the digital pin mode for on (1) and off (0) control,
     and analog pin mode for PWM (pulse width modulation) (0-255).`);
 
   export const READ_PIN =
-    trim(`The Read Sensor step instructs FarmBot to read the
+    trim(`The Read Sensor step instructs Holda to read the
     current value of the specified sensor or peripheral.
     Pin Mode: Use digital for a 0 (LOW) or 1 (HIGH) response,
     and analog for a voltage reading (0-1023 for 0-5V).`);
 
   export const WAIT =
-    trim(`The Wait step instructs FarmBot to wait for the specified amount
+    trim(`The Wait step instructs Holda to wait for the specified amount
     of time. Use it in combination with the Control Peripheral step to
     water for a length of time.`);
 
   export const SEND_MESSAGE =
-    trim(`The Send Message step instructs FarmBot to send a custom message
+    trim(`The Send Message step instructs Holda to send a custom message
     to the logs (and toast message and/or email, if selected). This can
     help you with debugging your sequences.`);
 
@@ -577,7 +577,7 @@ export namespace ToolTips {
     trim(`Calibrate your camera in the Photos panel before detecting weeds.`);
 
   export const MARK_AS =
-    trim(`The Mark As step allows FarmBot to programmatically edit the
+    trim(`The Mark As step allows Holda to programmatically edit the
     properties of the UTM, plants, and weeds from within a sequence.
     For example, you can mark a plant as "planted" during a seeding
     sequence or mark a weed as "removed" after removing it.`);
@@ -592,7 +592,7 @@ export namespace ToolTips {
     trim(`Toggle a digital pin on or off.`);
 
   export const MOVE_TO_HOME =
-    trim(`Move FarmBot to home for the provided axis.`);
+    trim(`Move Holda to home for the provided axis.`);
 
   export const ASSERTION =
     trim(`Evaluate Lua commands. For power users and software developers.`);
@@ -601,10 +601,10 @@ export namespace ToolTips {
     trim(`Execute Lua commands. For power users and software developers.`);
 
   export const FIRMWARE_ACTION =
-    trim(`FarmBot OS or micro-controller firmware action.`);
+    trim(`Holda OS or micro-controller firmware action.`);
 
   export const SYSTEM_ACTION =
-    trim(`FarmBot OS action.`);
+    trim(`Holda OS action.`);
 
   export const UNKNOWN_STEP =
     trim(`Unable to properly display this step.`);
@@ -660,7 +660,7 @@ export namespace ToolTips {
   export const WATER_FLOW_RATE =
     trim(`To calculate **WATER FLOW RATE**, hold a measuring cup below the
     watering nozzle and click the **RUN WATER FOR 5 SECONDS** button.
-    Measure how much water FarmBot dispensed in milliliters (mL)
+    Measure how much water Holda dispensed in milliliters (mL)
     and then divide this number by 5. Enter the result in the field.`);
 
   // Logs
@@ -685,11 +685,11 @@ export namespace Content {
 
   export const ACCOUNT_EMAIL_CHANGE =
     trim(`Warning: Upon successful change of your account email or password,
-    FarmBot will cease to function and become inaccessible until it is
+    Holda will cease to function and become inaccessible until it is
     reconfigured with your new web app credentials.`);
 
   export const ACCOUNT_PASSWORD_CHANGE =
-    trim(`Upon successful password change, your FarmBot will soft reset
+    trim(`Upon successful password change, your Holda will soft reset
     allowing you to configure it with the updated credentials.
     You will also be logged out of other browser sessions. Continue?`);
 
@@ -699,8 +699,8 @@ export namespace Content {
     All app settings and device settings will be reset to default values.
     This is useful if you want to delete all data to start from scratch
     while avoiding having to fully delete your account, re-signup, and
-    re-configure your FarmBot. Note that when FarmBot syncs
-    after resetting your account, your FarmBot will delete all of its
+    re-configure your Holda. Note that when Holda syncs
+    after resetting your account, your Holda will delete all of its
     stored Sequences, etc, because your account will no longer have any
     of these resources until you create new ones. Furthermore, upon reset
     any customized device settings will be immediately overwritten with
@@ -713,12 +713,12 @@ export namespace Content {
   export const ACCOUNT_DELETE_WARNING =
     trim(`WARNING! Deleting your account will permanently delete all of your
     Sequences, Regimens, Events, and Farm Designer data. Upon deleting your
-    account, FarmBot will cease to function and become inaccessible until it is
+    account, Holda will cease to function and become inaccessible until it is
     paired with another web app account. To do this, you will need to reboot
-    your FarmBot so that is goes back into configuration mode for pairing with
-    another user account. When this happens, all of the data on your FarmBot
+    your Holda so that is goes back into configuration mode for pairing with
+    another user account. When this happens, all of the data on your Holda
     will be overwritten with the new account's data. If the account is brand
-    new, then FarmBot will become a blank slate.`);
+    new, then Holda will become a blank slate.`);
 
   export const TYPE_PASSWORD_TO_DELETE =
     trim(`If you are sure you want to delete your account, type in
@@ -734,8 +734,8 @@ export namespace Content {
 
   // Messages
   export const SEED_DATA_SELECTION =
-    trim(`To finish setting up your account and FarmBot, please select which
-    FarmBot you have. Once you make a selection, we'll automatically add some
+    trim(`To finish setting up your account and Holda, please select which
+    Holda you have. Once you make a selection, we'll automatically add some
     tools, sensors, peripherals, sequences, and more to get you up and running
     faster. If you want to start completely from scratch, feel free to select
     "Custom bot" and we won't change a thing.`);
@@ -750,8 +750,8 @@ export namespace Content {
     and features at your fingertips.`);
 
   export const READ_THE_DOCS =
-    trim(`The FarmBot web app is a powerful tool that allows you to control
-    and configure your FarmBot in any way you want. To give you so much power,
+    trim(`The Holda web app is a powerful tool that allows you to control
+    and configure your Holda in any way you want. To give you so much power,
     we've packed the app with a ton of settings, features, and pages, which
     can be a lot to understand. That's why we've created comprehensive written
     documentation and videos to teach you how to use everything.`);
@@ -762,7 +762,7 @@ export namespace Content {
 
   export const MESSAGE_CENTER_WELCOME =
     trim(`Here you'll find important information about your account, your
-    FarmBot, and news such as new feature announcements. Look for the blue
+    Holda, and news such as new feature announcements. Look for the blue
     badge in the main menu to see when new messages are available.`);
 
   export const MESSAGE_DISMISS =
@@ -771,17 +771,17 @@ export namespace Content {
 
   export const FIRMWARE_MISSING =
     trim(`Please choose a firmware version to install. Your choice should be
-    based on the type of electronics in your FarmBot according to the reference
+    based on the type of electronics in your Holda according to the reference
     table below.`);
 
   export const DEMO_ACCOUNT =
-    trim(`Thanks for trying out the FarmBot web app!
+    trim(`Thanks for trying out the Holda web app!
     This is a great way to introduce yourself to building sequences,
     regimens, events, and designing a virtual garden.`);
 
   export const DEMO_NOTE =
     trim(`not all features of the app will work because there is not a
-    real FarmBot connected to this account. Additionally, keep in mind
+    real Holda connected to this account. Additionally, keep in mind
     that when you leave this web page, the demo account and all data will
     be deleted.`);
 
@@ -790,7 +790,7 @@ export namespace Content {
     real account at`);
 
   export const SETUP_INCOMPLETE =
-    trim(`Finish setting up your account and FarmBot using our setup wizard.
+    trim(`Finish setting up your account and Holda using our setup wizard.
     To open the setup wizard, click the **Setup: {{ percentComplete }}**
     button in the main navigation bar.`);
 
@@ -801,10 +801,10 @@ export namespace Content {
 
   export const STANDARD_SUPPORT =
     trim(`Get in touch with our support staff. Only available to customers
-    who have purchased a full FarmBot kit from FarmBot Inc.`);
+    who have purchased a full Holda kit from Holda Inc.`);
 
   export const FORUM_SUPPORT =
-    trim(`Have a question for the greater FarmBot community? Get help by
+    trim(`Have a question for the greater Holda community? Get help by
     asking our global community of users on the`);
 
   export const FEEDBACK_NOTICE =
@@ -814,7 +814,7 @@ export namespace Content {
     you, please include your phone number or preferred means of contact.`);
 
   export const MUST_REGISTER =
-    trim(`You must register your original FarmBot order number before
+    trim(`You must register your original Holda order number before
     contacting support.`);
 
   // App Settings
@@ -833,18 +833,18 @@ export namespace Content {
     panel from the Farm Designer.`);
 
   export const ENABLE_3D_ELECTRONICS_BOX_TOP =
-    trim(`Show a 3D model of FarmBot's electronics box instead of a 2D view
+    trim(`Show a 3D model of Holda's electronics box instead of a 2D view
     in the Peripherals tab of the Controls pop-up.`);
 
   export const BROWSER_SPEAK_LOGS =
     trim(`Have the browser also read aloud log messages on the
-    "Speak" channel that are spoken by FarmBot.`);
+    "Speak" channel that are spoken by Holda.`);
 
   export const LANDING_PAGE =
     trim(`Choose the starting page that loads after logging in.`);
 
   export const BROWSER_ACTIVITY_BEEP =
-    trim(`Have the browser beep when FarmBot sends a log message.
+    trim(`Have the browser beep when Holda sends a log message.
     Verbosity can be adjusted using the slider; increase the value for more
     frequent beeps.`);
 
@@ -857,17 +857,17 @@ export namespace Content {
     will be discarded when refreshing or closing the page. Are you sure?`);
 
   export const EMERGENCY_UNLOCK_CONFIRM_CONFIG =
-    trim(`Confirm when unlocking FarmBot after an emergency stop.`);
+    trim(`Confirm when unlocking Holda after an emergency stop.`);
 
   export const CONFIRM_EMERGENCY_UNLOCK_CONFIRM_DISABLE =
     trim(`Warning! When disabled, clicking the UNLOCK button will immediately
-    unlock FarmBot instead of confirming that it is safe to do so.
-    As a result, double-clicking the E-STOP button may not stop FarmBot.
+    unlock Holda instead of confirming that it is safe to do so.
+    As a result, double-clicking the E-STOP button may not stop Holda.
     Are you sure you want to disable this feature?`);
 
   export const USER_INTERFACE_READ_ONLY_MODE =
     trim(`Disallow account data changes. This does
-    not prevent Farmwares or FarmBot OS from changing settings.`);
+    not prevent Farmwares or Holda OS from changing settings.`);
 
   export const DARK_MODE =
     trim(`Enable a dark interface theme.`);
@@ -897,65 +897,65 @@ export namespace Content {
   export const VIEW_CELERY_SCRIPT =
     trim(`View raw data representation of sequence steps.`);
 
-  // FarmBot OS Settings
+  // Holda OS Settings
   export const DIFFERENT_TZ_WARNING =
-    trim(`Note: The selected timezone for your FarmBot is different than
+    trim(`Note: The selected timezone for your Holda is different than
     your local browser time.`);
 
   export const UNSTABLE_RELEASE_CHANNEL_WARNING =
-    trim(`Warning! Leaving the stable FarmBot OS release channel may reduce
-    FarmBot system stability. Are you sure?`);
+    trim(`Warning! Leaving the stable Holda OS release channel may reduce
+    Holda system stability. Are you sure?`);
 
   export const DEVICE_NEVER_SEEN =
     trim(`The device has never been seen. Most likely,
     there is a network connectivity issue on the device's end.`);
 
   export const TOO_OLD_TO_UPDATE =
-    trim(`Please re-flash your FarmBot's SD card.`);
+    trim(`Please re-flash your Holda's SD card.`);
 
   export const OS_AUTO_UPDATE =
-    trim(`FarmBot OS will automatically download and install
+    trim(`Holda OS will automatically download and install
     software updates at the chosen time.`);
 
-  // FarmBot OS Settings: Firmware
+  // Holda OS Settings: Firmware
   export const RESTART_FIRMWARE =
     trim(`Restart the Farmduino or Arduino firmware.`);
 
   export const FIRMWARE_UPGRADED =
-    trim(`If you are upgrading your FarmBot, you may need to manually add
+    trim(`If you are upgrading your Holda, you may need to manually add
     any new peripherals, sensors, and tools that your new electronics board
     supports.`);
 
-  // FarmBot OS Settings: Power and Reset
+  // Holda OS Settings: Power and Reset
   export const RESTART_FARMBOT =
-    trim(`This will restart FarmBot's Raspberry Pi and controller
+    trim(`This will restart Holda's Raspberry Pi and controller
     software.`);
 
   export const SHUTDOWN_FARMBOT =
-    trim(`This will shutdown FarmBot's Raspberry Pi. To turn it
-    back on, unplug FarmBot and plug it back in.`);
+    trim(`This will shutdown Holda's Raspberry Pi. To turn it
+    back on, unplug Holda and plug it back in.`);
 
   export const SOFT_RESET_WARNING =
-    trim(`Soft resetting your FarmBot will revoke your FarmBot's ability
+    trim(`Soft resetting your Holda will revoke your Holda's ability
     to connect to your web app account and your home WiFi network.
     Upon soft resetting, your device will go into Configurator mode.`);
 
   export const SOFT_RESET_ALERT =
-    trim(`Warning: This will erase data stored on your FarmBot's SD card,
-    requiring you to reconfigure FarmBot so that it can reconnect to your
+    trim(`Warning: This will erase data stored on your Holda's SD card,
+    requiring you to reconfigure Holda so that it can reconnect to your
     WiFi network and web app account. Soft resetting the device will
     not delete data stored in your web app account. Are you sure you wish
     to continue?`);
 
   export const HARD_RESET_WARNING =
-    trim(`Hard reset your FarmBot by reflashing the latest version of
-    FarmBot OS onto the microSD card. This will erase all data from the
+    trim(`Hard reset your Holda by reflashing the latest version of
+    Holda OS onto the microSD card. This will erase all data from the
     device and allow you to start from a clean slate. This is recommended
     if you are experiencing problems with your setup. Upon hard resetting,
     your device will go into Configurator mode.`);
 
   export const OS_RESET_WARNING =
-    trim(`{{ resetMethod }} resetting your FarmBot will not affect any of
+    trim(`{{ resetMethod }} resetting your Holda will not affect any of
     your data or settings from your web app account, allowing you to do a
     complete restore to your device once it is back online and paired with
     your web app account.`);
@@ -969,9 +969,9 @@ export namespace Content {
 
   // Hardware Settings: Limit Switches
   export const LIMIT_SWITCH_WARNING =
-    trim(`Warning: Limit switches are NOT included with standard FarmBot
+    trim(`Warning: Limit switches are NOT included with standard Holda
     Genesis or Express kits. Do NOT enable limit switches unless you have
-    built your own FarmBot with them or added them to a stock kit.`);
+    built your own Holda with them or added them to a stock kit.`);
 
   // Hardware Settings: Parameter Management
   export const RESTORE_DEFAULT_HARDWARE_SETTINGS =
@@ -991,7 +991,7 @@ export namespace Content {
     trim(`Enable plant animations in the garden map.`);
 
   export const VIRTUAL_TRAIL =
-    trim(`Display a virtual trail for FarmBot in the garden map to show
+    trim(`Display a virtual trail for Holda in the garden map to show
     movement and watering history while the map is open. Toggling this setting
     will clear data for the current trail.`);
 
@@ -1064,19 +1064,19 @@ export namespace Content {
     web app server. Make sure you are connected to the Internet.`);
 
   export const MALFORMED_MESSAGE_REC_UPGRADE =
-    trim(`FarmBot sent a malformed message. You may need to upgrade
-    FarmBot OS. Please upgrade FarmBot OS and log back in.`);
+    trim(`Holda sent a malformed message. You may need to upgrade
+    Holda OS. Please upgrade Holda OS and log back in.`);
 
   export const OLD_FBOS_REC_UPGRADE =
-    trim(`Your version of FarmBot OS is outdated and will soon no longer
+    trim(`Your version of Holda OS is outdated and will soon no longer
     be supported. Please update your device as soon as possible.`);
 
   export const OLD_FBOS_UNSUPPORTED =
-    trim(`You are running an old version of FarmBot OS that is no longer
+    trim(`You are running an old version of Holda OS that is no longer
     supported.`);
 
   export const FORCE_REFRESH_CONFIRM =
-    trim(`A new version of the FarmBot web app has been released.
+    trim(`A new version of the Holda web app has been released.
     Refresh page?`);
 
   export const FORCE_REFRESH_CANCEL_WARNING =
@@ -1127,10 +1127,10 @@ export namespace Content {
     for: `);
 
   export const REBOOT_STEP =
-    trim(`Power cycle FarmBot's onboard computer.`);
+    trim(`Power cycle Holda's onboard computer.`);
 
   export const SHUTDOWN_STEP =
-    trim(`Power down FarmBot's onboard computer.`);
+    trim(`Power down Holda's onboard computer.`);
 
   export const ESTOP_STEP =
     trim(`Unlocking a device requires user intervention.`);
@@ -1149,7 +1149,7 @@ export namespace Content {
     charge for tasks including but not limited to:`);
 
   export const PUBLISH_SEQUENCE_MAY_IMPORT =
-    trim(`Importing the sequence into their FarmBot account to view and use
+    trim(`Importing the sequence into their Holda account to view and use
     it as they deem fit`);
 
   export const REPUBLISH_WARNING =
@@ -1175,7 +1175,7 @@ export namespace Content {
 
   export const IMPORT_SEQUENCE =
     trim(`Importing this sequence will allow you to use it with your
-    FarmBot and make changes. If the original author of the sequence
+    Holda and make changes. If the original author of the sequence
     publishes a new version, you will have the option to upgrade your copy.`);
 
   export const INCLUDES_LUA_WARNING =
@@ -1185,7 +1185,7 @@ export namespace Content {
     trim(`This sequence was imported from a publicly shared sequence. If
     the original author publishes a new version, you may upgrade your copy.
     Upgrading will overwrite your copy with the contents of the new version.
-    It is recommended you check your FarmBot continues operating as expected
+    It is recommended you check your Holda continues operating as expected
     after any upgrades.`);
 
   export const SEQUENCE_FORKED =
@@ -1203,7 +1203,7 @@ export namespace Content {
 
   export const WITHIN_HOUR_OF_OS_UPDATE =
     trim(`Warning: One or more items are scheduled to run within one hour
-    of the FarmBot OS update time setting.`);
+    of the Holda OS update time setting.`);
 
   // Farm Designer
   export const OUTSIDE_PLANTING_AREA =
@@ -1288,13 +1288,13 @@ export namespace Content {
     this is a concern.`);
 
   export const FARM_EVENT_TZ_WARNING =
-    trim(`Note: Times displayed according to FarmBot's local time, which
+    trim(`Note: Times displayed according to Holda's local time, which
     is currently different from your browser's time. Timezone data is
     configurable in the Settings panel).`);
 
   export const FIRST_PARTY_WARNING =
     trim(`Are you sure you want to delete this first party farmware?
-    Doing so will limit the functionality of your FarmBot and
+    Doing so will limit the functionality of your Holda and
     may cause unexpected behavior.`);
 
   export const MISSING_EXECUTABLE =
@@ -1303,7 +1303,7 @@ export namespace Content {
 
   // Farmware
   export const NO_IMAGES_YET =
-    trim(`You haven't yet taken any photos with your FarmBot.
+    trim(`You haven't yet taken any photos with your Holda.
     Once you do, they will show up here.`);
 
   export const PROCESSING_PHOTO =
@@ -1321,13 +1321,13 @@ export namespace Content {
 
   export const CAMERA_CALIBRATION_RED_OBJECTS =
     trim(`Place the two red calibration objects 100mm apart and aligned
-    with FarmBot's axes on the soil underneath the camera.`);
+    with Holda's axes on the soil underneath the camera.`);
 
   export const CAMERA_CALIBRATION_GRID_PATTERN =
     trim(`Place the camera calibration card face down on the soil
     underneath the camera, with the grid of white circles facing up.
     Can be in any orientation but must be fully visible to the camera.
-    Caution: FarmBot will make three small x-axis and y-axis movements
+    Caution: Holda will make three small x-axis and y-axis movements
     during calibration.`);
 
   export const FARMWARE_ENV_EDITOR_WARNING =
@@ -1343,11 +1343,11 @@ export namespace Content {
 
   // Other
   export const DOWNLOAD_FBOS =
-    trim(`Download the version of FarmBot OS that corresponds to your
-    FarmBot kit and its internal computer.`);
+    trim(`Download the version of Holda OS that corresponds to your
+    Holda kit and its internal computer.`);
 
   export const SHIPPING_BOX_LABEL_PROMPT =
-    trim(`Check the side of the box your FarmBot came in. What is the
+    trim(`Check the side of the box your Holda came in. What is the
     labeled version?`);
 
   export const PI_POWER_CABLE_COLOR_PROMPT =
@@ -1355,10 +1355,10 @@ export namespace Content {
     the top of the Raspberry Pi (the green circuit board)?`);
 
   export const FEATURED_SEQUENCES =
-    trim(`Featured shared sequences published by FarmBot Inc.`);
+    trim(`Featured shared sequences published by Holda Inc.`);
 
   export const UNSUPPORTED_BROWSER =
-    trim(`Your web browser may not work properly with the FarmBot Web App.
+    trim(`Your web browser may not work properly with the Holda Web App.
     If you experience any issues, try using a recent version of Chrome,
     Firefox, or Edge.`);
 
@@ -1390,7 +1390,7 @@ export namespace Content {
 export namespace TourContent {
   // Getting started
   export const GETTING_STARTED =
-    trim(`Welcome to the FarmBot web app! In this tour you'll become
+    trim(`Welcome to the Holda web app! In this tour you'll become
     familiar with the overall organization of the app.`);
 
   export const PLANTS_PANEL =
@@ -1438,7 +1438,7 @@ export namespace TourContent {
     weeds in your garden. Mousing over a weed in the list will highlight
     it in the map and vice versa. Newly detected weeds will appear in the
     PENDING category, which you must periodically approve to be listed
-    in the ACTIVE category. Once a weed has been dealt with by FarmBot, it
+    in the ACTIVE category. Once a weed has been dealt with by Holda, it
     can be moved to the REMOVED category with a Mark As sequence command.
     Clicking a weed will open up the weed details panel where you can
     manually edit it.`);
@@ -1449,10 +1449,10 @@ export namespace TourContent {
     will create a new curve.`);
 
   export const CONTROLS_PANEL =
-    trim(`Here you can control your FarmBot in
+    trim(`Here you can control your Holda in
     realtime by pressing the movement arrow buttons, toggling peripherals,
     and executing pinned sequences. You can also view current status
-    information about your FarmBot including its position and an optional
+    information about your Holda including its position and an optional
     webcam stream.`);
 
   export const SENSORS_PANEL =
@@ -1472,7 +1472,7 @@ export namespace TourContent {
   export const PHOTOS_PANEL =
     trim(`This is the photos panel. Here you can view and manage all of the
     photos of your garden. Additionally, here is where you can calibrate
-    FarmBot's camera and weed detection settings to fine tune the
+    Holda's camera and weed detection settings to fine tune the
     performance for your lighting conditions and soil type.`);
 
   export const TOOLS_PANEL =
@@ -1485,7 +1485,7 @@ export namespace TourContent {
     trim(`This is the message center. Here you can view and manage setup
     cards and announcements. Dismiss items you are finished with by
     pressing the X in the top right of a card. Check back often for new
-    feature announcements and important information about your FarmBot.`);
+    feature announcements and important information about your Holda.`);
 
   export const HELP_PANEL =
     trim(`This is the help panel. Here you can browse the documentation or
@@ -1494,31 +1494,31 @@ export namespace TourContent {
 
   export const SETTINGS_PANEL =
     trim(`This is the settings panel. Here you can view and manage all of
-    your FarmBot and account settings. Refer to the tooltips and
+    your Holda and account settings. Refer to the tooltips and
     documentation for information about each setting.`);
 
   export const CONNECTIVITY_POPUP =
     trim(`This is the connectivity popup. View information
-    about the connection between your web browser, your FarmBot, and the
-    FarmBot web app servers. Whenever your FarmBot is online and ready for
+    about the connection between your web browser, your Holda, and the
+    Holda web app servers. Whenever your Holda is online and ready for
     action, you will see a green checkmark.`);
 
   export const CURRENT_POSITION =
-    trim(`This is the current position indicator. FarmBot's current X, Y,
+    trim(`This is the current position indicator. Holda's current X, Y,
     and Z coordinates in millimeters are displayed for quick viewing from
     any page in the web app.`);
 
   export const ESTOP_BUTTON =
     trim(`This is the E-STOP button, allowing you to emergency stop any
-    movements and turn off all of FarmBot's peripherals in case something
-    is going wrong. After E-STOPPING FarmBot, you will need to click the
+    movements and turn off all of Holda's peripherals in case something
+    is going wrong. After E-STOPPING Holda, you will need to click the
     same button to UNLOCK the device before resuming execution of any
     commands.`);
 
   export const GETTING_STARTED_END =
     trim(`Thanks for taking the Getting Started Tour! You're now ready to
     dive into the details of each panel and begin planting your first
-    garden with FarmBot. Check out our other tours for practical
+    garden with Holda. Check out our other tours for practical
     step-by-step help, and refer to our in-depth documentation in case you
     get stuck on anything.`);
 
@@ -1590,8 +1590,8 @@ export namespace TourContent {
     Group Members section, then advance the tour.`);
 
   export const SORT_BY =
-    trim(`When you program your FarmBot to perform an operation on a group
-    of plants, you may want to control the ordering at which FarmBot visits
+    trim(`When you program your Holda to perform an operation on a group
+    of plants, you may want to control the ordering at which Holda visits
     each plant in the group. To do this, click the sort icon to open the
     sort menu and select one of the available Sort
     By methods. Once you have chosen a method, advance the tour.`);
@@ -1610,44 +1610,44 @@ export namespace TourContent {
   // Setting up slots
   export const SETTING_UP_SLOTS_TOOLS_PANEL =
     trim(`This is the tools panel. Here you can add, edit, and view your
-    FarmBot's tools and seed containers as well the slots they are loaded
+    Holda's tools and seed containers as well the slots they are loaded
     into. Mousing over a slot will highlight it in the map and vice versa.
-    We've already added all of the items included with your FarmBot kit.
+    We've already added all of the items included with your Holda kit.
     Your job now is to input the exact location of the slots corresponding
     to where you installed them in real life. Click the first slot in the
     list and then advance the tour.`);
 
   export const EDIT_SLOT_PANEL =
-    trim(`This is the edit slot panel where you will let FarmBot know the
+    trim(`This is the edit slot panel where you will let Holda know the
     exact X, Y, and Z coordinates it must travel to when mounting and
     dismounting tools or picking up seeds from a seed container. Advance
     the tour to figure out the coordinates for this first slot.`);
 
   export const EDIT_SLOT_COORDINATES_SETUP_GENESIS =
-    trim(`In real life, load one of FarmBot's tools (such as the watering
+    trim(`In real life, load one of Holda's tools (such as the watering
     nozzle) into a toolbay slot. Then, using the controls popup, instruct
-    FarmBot to find the home position.`);
+    Holda to find the home position.`);
 
   export const EDIT_SLOT_COORDINATES_SETUP_EXPRESS =
     trim(`Insert a luer lock needle into the 3-in-1 tool head and place a
     seed trough into the gantry-mounted seed trough holder. Then, using the
-    controls popup, instruct FarmBot to find the home position.`);
+    controls popup, instruct Holda to find the home position.`);
 
   export const EDIT_SLOT_COORDINATES_GENESIS =
-    trim(`Using the manual controls, instruct FarmBot to move towards the
+    trim(`Using the manual controls, instruct Holda to move towards the
     tool and slot. As you get closer, change the MOVE AMOUNT to a smaller
     value for finer movements. Your goal is to position the UTM just above
     the tool and then descend down onto it (mounting it). Once the UTM has
     mounted the tool, click the blue button next to the slot's X, Y, and Z
-    fields to save FarmBot's current position to the slot.`);
+    fields to save Holda's current position to the slot.`);
 
   export const EDIT_SLOT_COORDINATES_EXPRESS =
-    trim(`Using the manual controls, instruct FarmBot to move towards the
+    trim(`Using the manual controls, instruct Holda to move towards the
     seed trough. As you get closer, change the MOVE AMOUNT to a smaller
     value for finer movements. Your goal is to position the needle just
     above the trough and then descend down into it until the tip of the
     needle is 3 to 5mm from the bottom of the trough. Click the blue button
-    next to the slot's X, Y, and Z fields to save FarmBot's current
+    next to the slot's X, Y, and Z fields to save Holda's current
     position to the slot.`);
 
   export const SETTING_UP_SLOTS_MINOR_ADJUSTMENTS =
@@ -1668,13 +1668,13 @@ export namespace TourContent {
 
   // Monitoring
   export const LOCATION_GRID =
-    trim(`View FarmBot's current location in the navigation bar.`);
+    trim(`View Holda's current location in the navigation bar.`);
 
   export const VIRTUAL_FARMBOT =
-    trim(`Or view FarmBot's current location in the virtual garden.`);
+    trim(`Or view Holda's current location in the virtual garden.`);
 
   export const VIRTUAL_FARMBOT_PROFILE =
-    trim(`For a profile view of FarmBot's current location in the virtual
+    trim(`For a profile view of Holda's current location in the virtual
     garden, open the profile viewer.`);
 
   export const LOGS_TABLE =
@@ -1682,27 +1682,27 @@ export namespace TourContent {
     More detailed log messages can be shown by adjusting filter settings.`);
 
   export const PHOTOS =
-    trim(`View photos your FarmBot has taken here.`);
+    trim(`View photos your Holda has taken here.`);
 }
 
 export namespace SetupWizardContent {
   export const INTRO =
     trim(`Welcome to the setup wizard. This process will guide you through
-    the steps necessary to get your FarmBot set up and running. Each step
+    the steps necessary to get your Holda set up and running. Each step
     will include an action to perform and a question about the outcome, which
     can be answered yes or no. Answering yes will continue to the next step,
     while answering no will display a list of results that can be selected for
     specific troubleshooting tips.`);
 
   export const FB_ORDER_NUMBER =
-    trim(`Please enter your FarmBot order number. This is not necessary to
+    trim(`Please enter your Holda order number. This is not necessary to
     use the app but is helpful if you ever need additional support.
     If you do not have your original order number you may leave this field
     blank.`);
 
   export const RPI =
     trim(`Inspect the ports on the top edge of the Raspberry Pi and select
-    which Raspberry Pi model is in your FarmBot.`);
+    which Raspberry Pi model is in your Holda.`);
 
   export const SEED_DATA =
     trim(`Once you make a selection, we'll automatically add some
@@ -1710,14 +1710,14 @@ export namespace SetupWizardContent {
     and running faster.`);
 
   export const PRE_POWER_POSITION =
-    trim(`With the FarmBot still powered off, manually move the gantry,
+    trim(`With the Holda still powered off, manually move the gantry,
     cross-slide, and Z-axis roughly 150mm away from any of its hardstops.
     In other words, position the gantry partway along the tracks, position
     the cross-slide partway across the gantry main beam, and position the
     Z-axis halfway down.`);
 
   export const PRE_POWER_POSITION_EXPRESS =
-    trim(`With the FarmBot still powered off, manually move the gantry and
+    trim(`With the Holda still powered off, manually move the gantry and
     cross-slide roughly 150mm away from the X and Y axis hardstops.
     In other words, position the gantry partway along the tracks and position
     the cross-slide partway across the gantry main beam. Rotate the
@@ -1725,23 +1725,23 @@ export namespace SetupWizardContent {
 
   export const DOWNLOAD_OS =
     trim(`Using a desktop computer or laptop, download the latest
-    FarmBot OS .img file:`);
+    Holda OS .img file:`);
 
   export const IMAGER =
     trim(`Using a desktop computer or laptop, download and install the
     official Raspberry Pi Imager program from the Raspberry Pi Foundation.
-    This is necessary for installing FarmBot OS onto the microSD card in
+    This is necessary for installing Holda OS onto the microSD card in
     the next step.`);
 
   export const COMPUTER_SD_CARD_GENESIS =
-    trim(`Remove the microSD card from the FarmBot's Raspberry Pi.
+    trim(`Remove the microSD card from the Holda's Raspberry Pi.
     The card slot is located on the back side of the Raspberry Pi,
     on the right-hand edge. Then connect the microSD card to your computer
     using a card reader. You may need to use the microSD card to SD card
     adapter included with your kit.`);
 
   export const COMPUTER_SD_CARD_EXPRESS =
-    trim(`Remove the microSD card from the FarmBot's Raspberry Pi.
+    trim(`Remove the microSD card from the Holda's Raspberry Pi.
     The card slot is located on the front side of the Raspberry Pi,
     on the left-hand edge. Then connect the microSD card to your computer
     using a card reader. You may need to use the microSD card to SD card
@@ -1750,25 +1750,25 @@ export namespace SetupWizardContent {
   export const FLASH_SD_CARD =
     trim(`Open up the Raspberry Pi Imager program and click \`CHOOSE OS\`.
     Then scroll to the bottom of the popup and select **Use custom** *Select a
-    custom .img file from your computer*. Then select the FarmBot OS \`.img\`
+    custom .img file from your computer*. Then select the Holda OS \`.img\`
     file you downloaded. Click the \`CHOOSE STORAGE\` button and then select
     the microSD card (it should show up as a 7.9 GB option). Click \`WRITE\`
     and if prompted, give your computer permission to perform this action.`);
 
   export const INSERT_SD_CARD_GENESIS =
     trim(`Remove the microSD card from your computer and insert it into
-    FarmBot's Raspberry Pi. The card slot is located on the back side of
+    Holda's Raspberry Pi. The card slot is located on the back side of
     the Raspberry Pi, on the right-hand edge. You do not need to remove the
     Raspberry Pi from the electronics box to insert the card; we have left
     enough access room.`);
 
   export const INSERT_SD_CARD_EXPRESS =
     trim(`Remove the microSD card from your computer and insert it into
-    FarmBot's Raspberry Pi. The card slot is located on the front side of
+    Holda's Raspberry Pi. The card slot is located on the front side of
     the Raspberry Pi, on the left-hand edge.`);
 
   export const OFFLINE =
-    trim(`Unable to connect to FarmBot. Please reconnect FarmBot to continue.`);
+    trim(`Unable to connect to Holda. Please reconnect Holda to continue.`);
 
   export const CANT_CONNECT =
     trim(`I can see the farmbot-xxxx network but my device will not connect`);
@@ -1779,22 +1779,22 @@ export namespace SetupWizardContent {
   export const NO_SETUP_NETWORK =
     trim(`Try waiting three minutes from power on. Check the Raspberry
     Pi power LED. Check that the SD is fully inserted. Try downloading a new
-    FarmBot OS image, ensuring that the device model is correct. Try
+    Holda OS image, ensuring that the device model is correct. Try
     re-flashing the SD card via Etcher. If possible, ensure line-of-sight
     between devices when trying to connect.`);
 
   export const AUTO_UPDATE =
-    trim(`Set the time you wish for FarmBot to automatically download and
-    install updates when available. During this time FarmBot will reboot
+    trim(`Set the time you wish for Holda to automatically download and
+    install updates when available. During this time Holda will reboot
     to apply the update, so you should never schedule any events to occur
     during the same hour. We recommend selecting 3 AM.`);
 
   export const AUTO_UPDATE_QUESTION =
-    trim(`Did you select a time when you will not need to use your FarmBot?`);
+    trim(`Did you select a time when you will not need to use your Holda?`);
 
   export const MAP_ORIENTATION =
-    trim(`Watch the video below showing how to match the virtual FarmBot
-    map to your real life FarmBot. The relevant controls are available
+    trim(`Watch the video below showing how to match the virtual Holda
+    map to your real life Holda. The relevant controls are available
     below the video for your convenience.`);
 
   export const SET_CAMERA_LOCATION =
@@ -1802,22 +1802,22 @@ export namespace SetupWizardContent {
     Select the correct camera angle by clicking on the camera location.`);
 
   export const PRESS_RIGHT_JOG_BUTTON =
-    trim(`Standing from where you will normally view the FarmBot,
+    trim(`Standing from where you will normally view the Holda,
     **press the right arrow button**.`);
 
   export const PRESS_UP_JOG_BUTTON =
-    trim(`Standing from where you will normally view the FarmBot,
+    trim(`Standing from where you will normally view the Holda,
     **press the up arrow button**.`);
 
   export const PRESS_DOWN_JOG_BUTTON =
-    trim(`Standing from where you will normally view the FarmBot,
+    trim(`Standing from where you will normally view the Holda,
     **press the z-axis down arrow button**.`);
 
   export const NO_MOTOR_MOVEMENT =
     trim(`It made sounds like it was trying to move, but didn't move`);
 
   export const DID_AXIS_MOVE =
-    trim(`Did FarmBot's {{ axis }}-axis move? (Don't worry about the
+    trim(`Did Holda's {{ axis }}-axis move? (Don't worry about the
     direction right now)`);
 
   export const NO_MOTOR_ACTIVITY =
@@ -1826,7 +1826,7 @@ export namespace SetupWizardContent {
 
   export const CONTROLS_VIDEO =
     trim(`Watch the video below showing how to match the manual controls to
-    your real life FarmBot. Once you have finished watching, proceed to the
+    your real life Holda. Once you have finished watching, proceed to the
     next setup steps to test and set the controls for each axis.`);
 
   export const FIND_HOME =
@@ -1834,11 +1834,11 @@ export namespace SetupWizardContent {
 
   export const FIND_HOME_Z_EXPRESS =
     trim(`Automatically finding the Z-axis home position is not enabled by
-    default for Express FarmBots. To manually set the Z home position,
+    default for Express Holdas. To manually set the Z home position,
     use the manual controls to move the Z-axis to the fully raised position.
-    If the Z-axis is not fully raised when the FarmBot reaches the Z=0
+    If the Z-axis is not fully raised when the Holda reaches the Z=0
     coordinate, press the E-stop button, rotate the leadscrew by hand to
-    fully raise the Z-axis, and then Unlock the FarmBot. With the Z-axis
+    fully raise the Z-axis, and then Unlock the Holda. With the Z-axis
     fully raised, open the ... menu for the Z-axis and click **SET HOME**.`);
 
   export const HOME_Z_EXPRESS =
@@ -1846,20 +1846,20 @@ export namespace SetupWizardContent {
     fully raised?`);
 
   export const HOME =
-    trim(`Did FarmBot reach the home position (touching the hardstop) for
+    trim(`Did Holda reach the home position (touching the hardstop) for
     this axis and set the coordinate to 0? Note: sometimes after a movement,
-    FarmBot will settle into place and coordinates may change by +/-0.5mm
+    Holda will settle into place and coordinates may change by +/-0.5mm
     from the desired value. If the coordinates are within 1mm of 0, that is
     acceptable.`);
 
   export const BOOT_SEQUENCE =
-    trim(`Select the 'Find Home' sequence in the dropdown. FarmBot will
+    trim(`Select the 'Find Home' sequence in the dropdown. Holda will
     execute this sequence every time it boots up. You can modify this
-    sequence or choose a different boot sequence later to have FarmBot
+    sequence or choose a different boot sequence later to have Holda
     perform different functions when it turns on.`);
 
   export const FIND_LENGTH =
-    trim(`Did FarmBot move to the end of the axis and then move back to
+    trim(`Did Holda move to the end of the axis and then move back to
     the home position for this axis?`);
 
   export const FIND_LENGTH_Z_EXPRESS =
@@ -1867,9 +1867,9 @@ export namespace SetupWizardContent {
     lowered and then returned the Z-axis to the home position?`);
 
   export const HOME_AXIS =
-    trim(`Try using the FIND HOME button a few more times. If FarmBot is
+    trim(`Try using the FIND HOME button a few more times. If Holda is
     still unable to reach the home position, check the hardware for
-    resistance. You may also move FarmBot's {{ axis }}-axis with the controls
+    resistance. You may also move Holda's {{ axis }}-axis with the controls
     or manually until the plates hit the hardstop. Then open the ... menu
     and click SET HOME.`);
 
@@ -1879,31 +1879,31 @@ export namespace SetupWizardContent {
     next setup steps to test movements along the full length of each axis.`);
 
   export const X_AXIS_MOVEMENTS =
-    trim(`Use the manual controls to move FarmBot along the full length of
+    trim(`Use the manual controls to move Holda along the full length of
     the X-axis in both directions.`);
 
   export const X_AXIS_MOVEMENTS_QUESTION =
-    trim(`Is the FarmBot able to move reliably along the full length of the
+    trim(`Is the Holda able to move reliably along the full length of the
     X-axis in both directions?`);
 
   export const Y_AXIS_MOVEMENTS =
-    trim(`Use the manual controls to move FarmBot along the full length of
+    trim(`Use the manual controls to move Holda along the full length of
     the Y-axis in both directions.`);
 
   export const Y_AXIS_MOVEMENTS_QUESTION =
-    trim(`Is the FarmBot able to move reliably along the full length of the
+    trim(`Is the Holda able to move reliably along the full length of the
     Y-axis in both directions?`);
 
   export const Z_AXIS_MOVEMENTS =
-    trim(`Use the manual controls to move FarmBot along the full length of
+    trim(`Use the manual controls to move Holda along the full length of
     the Z-axis in both directions.`);
 
   export const Z_AXIS_MOVEMENTS_QUESTION =
-    trim(`Is the FarmBot able to move reliably along the full length of the
+    trim(`Is the Holda able to move reliably along the full length of the
     Z-axis in both directions?`);
 
   export const AXIS_LENGTH =
-    trim(`Manually enter a value by measuring the usable distance FarmBot
+    trim(`Manually enter a value by measuring the usable distance Holda
     can travel along the axis.`);
 
   export const MOVEMENT_STALLS =
@@ -1934,7 +1934,7 @@ export namespace SetupWizardContent {
 
   export const FIND_AXIS_LENGTH_Z_EXPRESS =
     trim(`Automatically finding the Z-axis length is not enabled by default
-    for Express FarmBots. To manually set the Z length, use the manual controls
+    for Express Holdas. To manually set the Z length, use the manual controls
     to move the Z-axis to the fully lowered position. With the Z-axis fully
     lowered, open the ... menu for the Z-axis and click **SET LENGTH**.
     Then open the ... menu again and click **MOVE TO HOME**.`);
@@ -1955,12 +1955,12 @@ export namespace SetupWizardContent {
     into the toolbay slot nearest the home position.`);
 
   export const SLOTS_1_COORDINATES =
-    trim(`Using the manual controls, instruct FarmBot to move towards the
+    trim(`Using the manual controls, instruct Holda to move towards the
     slot with the seeder in it. As you get closer, change the
     MOVE AMOUNT to a smaller value for finer movements. Your goal is to
     position the UTM just above the tool and then descend down onto it
     (mounting it). Once the UTM has fully mounted the tool, click the blue
-    button next to the slot's X, Y, and Z fields to save FarmBot's current
+    button next to the slot's X, Y, and Z fields to save Holda's current
     position to the slot.`);
 
   export const SLOTS_2_COORDINATES =
@@ -1971,13 +1971,13 @@ export namespace SetupWizardContent {
     Using the manual controls, move the UTM to descend down onto the tool.
     Take your time, you may need to make fine +/- 1mm adjustments to the
     X and Y position as you are descending. Once the tool is mounted,
-    click the blue button to save FarmBot's current position to the slot.`);
+    click the blue button to save Holda's current position to the slot.`);
 
   export const SLOTS_REMAINING_COORDINATES =
     trim(`Repeat the process for all of the remaining toolbay slots.`);
 
   export const SLOTS_LOAD_TOOLS =
-    trim(`Using the manual controls, instruct FarmBot to go to home.
+    trim(`Using the manual controls, instruct Holda to go to home.
     Then manually (by hand) load the tools and seed containers into the
     toolbays according to the virtual configuration shown in the table
     below. You may optionally load the tools in a different configuration
@@ -1989,20 +1989,20 @@ export namespace SetupWizardContent {
     change the MOVE AMOUNT to a smaller value for finer movements.
     Your goal is to position the UTM just above the seed trough such
     that the middle liquid/gas port on the bottom of the UTM (the one
-    centered below the FarmBot logo) is about 1mm above the center of
-    the trough. Then click the blue button to save FarmBot's current
+    centered below the Holda logo) is about 1mm above the center of
+    the trough. Then click the blue button to save Holda's current
     position to the trough slot.`);
 
   export const SLOTS_SEED_TROUGH_2 =
     trim(`Using the manual controls, move the UTM 22mm in the +Y direction.
-    Then click the blue button to save FarmBot's current position to the
+    Then click the blue button to save Holda's current position to the
     trough slot.`);
 
   export const ESTOP_BUTTON =
     trim(`Press the physical E-Stop button on top of the electronics box.`);
 
   export const ESTOP_BUTTON_QUESTION =
-    trim(`Are FarmBot's motors unpowered? (Try moving the Y-axis by hand)`);
+    trim(`Are Holda's motors unpowered? (Try moving the Y-axis by hand)`);
 
   export const UNLOCK_BUTTON_BOX =
     trim(`Press the physical Unlock button on top of the electronics box.`);
@@ -2011,16 +2011,16 @@ export namespace SetupWizardContent {
     trim(`Press the UNLOCK button below.`);
 
   export const UNLOCK_BUTTON_QUESTION =
-    trim(`Did FarmBot unlock? (Check the logs or try sending a movement command)`);
+    trim(`Did Holda unlock? (Check the logs or try sending a movement command)`);
 
   export const CUSTOM_BUTTONS =
-    trim(`Customize which Action or Sequence you want FarmBot to execute
+    trim(`Customize which Action or Sequence you want Holda to execute
     when you press Button 3, 4, or 5 on the electronics box. To start, we
     recommend setting Button 5 to the 'Find Home' sequence. You can change
     this later from the controls pop-up.`);
 
   export const CUSTOM_BUTTONS_v18 =
-    trim(`Customize which Action or Sequence you want FarmBot to execute
+    trim(`Customize which Action or Sequence you want Holda to execute
     when you press Button 3 on the electronics box. To start, we
     recommend setting Button 3 to the 'Find Home' sequence. You can change
     this later from the controls pop-up.`);
@@ -2043,19 +2043,19 @@ export namespace SetupWizardContent {
     power cable.`);
 
   export const NETWORK_PORTS =
-    trim(`If you are installing FarmBot at a school or enterprise where the
+    trim(`If you are installing Holda at a school or enterprise where the
     internet network is managed by an IT department, you must ensure that
-    certain ports are opened to allow FarmBot to fully connect to the web
-    app. If you are installing FarmBot in one of these locations, have your
-    IT department review the following help page to ensure FarmBot will be
+    certain ports are opened to allow Holda to fully connect to the web
+    app. If you are installing Holda in one of these locations, have your
+    IT department review the following help page to ensure Holda will be
     able to fully connect once configured.`);
 
   export const NETWORK_PORTS_QUESTION =
     trim(`Has your IT department confirmed that the necessary ports are
-    opened or are you installing FarmBot at home?`);
+    opened or are you installing Holda at home?`);
 
   export const ETHERNET_OPTION =
-    trim(`Most people connect their FarmBot to the internet over WiFi,
+    trim(`Most people connect their Holda to the internet over WiFi,
     though you may optionally use a hardwired ethernet connection. If you
     would like to use an ethernet connection, simply connect an ethernet
     cable between your WiFi router and the Raspberry Pi.`);
@@ -2069,7 +2069,7 @@ export namespace SetupWizardContent {
     \`farmbot-xxxx\` WiFi network`);
 
   export const CONFIGURATOR_CONNECTION_PROMPT =
-    trim(`Is your phone or computer connected to the FarmBot WiFi network?`);
+    trim(`Is your phone or computer connected to the Holda WiFi network?`);
 
   export const CHECK_CAMERA_CABLE =
     trim(`Check that the camera is plugged in correctly to either a
@@ -2092,7 +2092,7 @@ export namespace SetupWizardContent {
     surface and is fully and clearly visible to the camera.
     The card must not be warped, bent, overexposed, or obscured in the
     above image. Lighting may be improved by shading the card from direct
-    sunlight, trying a different time of day, or using FarmBot's lights in
+    sunlight, trying a different time of day, or using Holda's lights in
     the evening or at night. There must be good contrast between the white
     dots and black calibration card background for calibration to
     complete successfully. Trying calibration in a different location with
@@ -2104,7 +2104,7 @@ export namespace SetupWizardContent {
 
   export const CAMERA_ALIGNMENT =
     trim(`Find a detail in the image at the soil level where the coordinates
-    are known (for example, a spot watered by FarmBot), and compare the known
+    are known (for example, a spot watered by Holda), and compare the known
     coordinates against the location for the detail shown in the map.`);
 
   export const CHECK_TOOL_CONNECTIONS =
@@ -2131,8 +2131,8 @@ export namespace SetupWizardContent {
 export enum DeviceSetting {
   axisHeadingLabels = ``,
 
-  // FarmBot
-  farmbotSettings = `FarmBot`,
+  // Holda
+  farmbotSettings = `Holda`,
   name = `name`,
   orderNumber = `Order Number`,
   timezone = `timezone`,
@@ -2141,7 +2141,7 @@ export enum DeviceSetting {
   indoor = `indoor`,
   osUpdateTime = `update time`,
   osAutoUpdate = `auto update`,
-  farmbotOS = `Farmbot OS`,
+  farmbotOS = `Holda OS`,
   bootSequence = `Boot Sequence`,
   firmware = `Firmware`,
   firmwarePath = `Firmware path`,
@@ -2151,8 +2151,8 @@ export enum DeviceSetting {
   // Power and Reset
   powerAndReset = `Power and Reset`,
   restartFirmware = `Restart Firmware`,
-  restartFarmbot = `Restart Farmbot`,
-  shutdownFarmbot = `Shutdown Farmbot`,
+  restartFarmbot = `Restart Holda`,
+  shutdownFarmbot = `Shutdown Holda`,
   softReset = `Soft Reset`,
   hardReset = `Hard Reset`,
   changeOwnership = `Change Ownership`,
@@ -2316,8 +2316,8 @@ export enum DeviceSetting {
   showRemovedWeedsMapLayer = `Show Removed Weeds Map Layer`,
   showSpread = `Spread`,
   showSpreadMapLayer = `Show Spread Map Layer`,
-  showFarmbot = `FarmBot`,
-  showFarmbotMapLayer = `Show FarmBot Map Layer`,
+  showFarmbot = `Holda`,
+  showFarmbotMapLayer = `Show Holda Map Layer`,
   showPhotos = `Photos`,
   showPhotosMapLayer = `Show Photos Map Layer`,
   showAreas = `Areas`,
@@ -2379,7 +2379,7 @@ export enum DeviceSetting {
   enable3dElectronicsBox = `Enable 3D electronics box`,
   readSpeakLogsInBrowser = `Read speak logs in browser`,
   landingPage = `Landing page`,
-  browserFarmbotActivityBeep = `Browser FarmBot activity beep`,
+  browserFarmbotActivityBeep = `Browser Holda activity beep`,
   discardUnsavedChanges = `Discard Unsaved Changes`,
   confirmEmergencyUnlock = `Confirm emergency unlock`,
   userInterfaceReadOnlyMode = `User Interface Read Only Mode`,
@@ -2431,51 +2431,51 @@ export enum DeviceSetting {
 export namespace DiagnosticMessages {
   export const OK = trim(`All systems nominal.`);
 
-  export const MISC = trim(`Some other issue is preventing FarmBot from
+  export const MISC = trim(`Some other issue is preventing Holda from
     working. Please see the table above for more information.`);
 
-  export const TOTAL_BREAKAGE = trim(`There is no access to FarmBot or the
+  export const TOTAL_BREAKAGE = trim(`There is no access to Holda or the
     message broker. This is usually caused by outdated browsers
     (Internet Explorer) or firewalls that block WebSockets on port 3002.`);
 
-  export const REMOTE_FIREWALL = trim(`FarmBot and the browser are both
-    connected to the internet (or have been recently). Try rebooting FarmBot
+  export const REMOTE_FIREWALL = trim(`Holda and the browser are both
+    connected to the internet (or have been recently). Try rebooting Holda
     and refreshing the browser. If the issue persists, something may be
-    preventing FarmBot from accessing the message broker (used to communicate
+    preventing Holda from accessing the message broker (used to communicate
     with your web browser in real-time). If you are on a company or school
     network, a firewall may be blocking port 5672 or port 8883. Ensure that
-    the blue LED communications light on the FarmBot electronics box is
+    the blue LED communications light on the Holda electronics box is
     illuminated.`);
 
   export const WIFI_OR_CONFIG = trim(`Your browser is connected correctly,
-    but we have no recent record of FarmBot connecting to the internet.
+    but we have no recent record of Holda connecting to the internet.
     This usually happens because of poor WiFi connectivity in the garden,
     a bad password during configuration, a very long power outage, or
-    blocked ports on FarmBot's local network. Please refer IT staff to:`);
+    blocked ports on Holda's local network. Please refer IT staff to:`);
 
   export const NO_WS_AVAILABLE = trim(`You are either offline, using a web
    browser that does not support WebSockets, or are behind a firewall that
-   blocks port 3002. Do not attempt to debug FarmBot hardware until you solve
+   blocks port 3002. Do not attempt to debug Holda hardware until you solve
    this issue first. You will not be able to troubleshoot hardware issues
    without a reliable browser and internet connection.`);
 
-  export const INACTIVE = trim(`FarmBot and the browser both have internet
-    connectivity, but we haven't seen any activity from FarmBot on the Web
-    App in a while. This could mean that FarmBot has not synced in a while,
+  export const INACTIVE = trim(`Holda and the browser both have internet
+    connectivity, but we haven't seen any activity from Holda on the Web
+    App in a while. This could mean that Holda has not synced in a while,
     which might not be a problem. If you are experiencing usability issues,
-    however, it could be a sign of HTTP blockage on FarmBot's local internet
+    however, it could be a sign of HTTP blockage on Holda's local internet
     connection.`);
 
   export const ARDUINO_DISCONNECTED = trim(`Farmduino firmware is missing.
     Press the yellow FLASH FIRMWARE button to flash the firmware to your
-    FarmBot. Verify FIRMWARE selection matches FarmBot kit version and
+    Holda. Verify FIRMWARE selection matches Holda kit version and
     check the USB cable between the Raspberry Pi and the Farmduino.
-    Reboot FarmBot after a reconnection. If the issue persists,
-    reconfiguration of FarmBot OS may be necessary.`);
+    Reboot Holda after a reconnection. If the issue persists,
+    reconfiguration of Holda OS may be necessary.`);
 }
 
 export const CAMERA_FOLLOW_PERSPECTIVE_REQUIRED =
-  "Perspective mode is required when following the FarmBot's camera view.";
+  "Perspective mode is required when following the Holda's camera view.";
 export const UTM_FOLLOW_PERSPECTIVE_REQUIRED =
   "Perspective mode is required when following the UTM.";
 
