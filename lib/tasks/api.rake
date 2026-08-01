@@ -1,4 +1,4 @@
-require "shellwords"
+require "fileutils"
 
 def check_for_digests
   Log
@@ -87,9 +87,7 @@ namespace :api do
   end
 
   def run_bun_assets(script_path)
-    env = asset_env
-    env_string = env.map { |k, v| "#{k}=#{Shellwords.escape(v)}" }.join(" ")
-    sh "#{env_string} bun #{script_path}"
+    sh asset_env, "bun", script_path
   end
 
   def clean_assets
@@ -152,7 +150,7 @@ namespace :api do
     src = "node_modules/monaco-editor/min/vs"
     dst = "public/assets/monaco"
 
-    sh "mkdir -p #{dst}/assets"
+    FileUtils.mkdir_p "#{dst}/assets"
 
     sh "cp -r #{src}/editor #{dst}"
     sh "cp -r #{src}/basic-languages #{dst}"
