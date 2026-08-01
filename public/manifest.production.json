@@ -1,6 +1,6 @@
 {
-  "name": "FarmBot",
-  "short_name": "FarmBot",
+  "name": "Holda",
+  "short_name": "Holda",
   "icons": [
     {
       "src": "/images/pwa_icon_production.png",
@@ -20,14 +20,14 @@
       "sizes": "1500x853",
       "type": "image/webp",
       "form_factor": "wide",
-      "label": "Home screen showing plants panel and 3D FarmBot view"
+      "label": "Home screen showing plants panel and 3D Holda view"
     },
     {
       "src": "/images/pwa_screenshot_narrow.webp",
       "sizes": "600x1073",
       "type": "image/webp",
       "form_factor": "narrow",
-      "label": "Home screen showing 3D FarmBot view"
+      "label": "Home screen showing 3D Holda view"
     }
   ],
   "shortcuts": [
