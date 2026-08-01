@@ -1,5 +1,5 @@
 class DataDumpMailer < ApplicationMailer
-  SUBJECT = "FarmBot Account Data Export"
+  SUBJECT = "Holda Account Data Export"
   EXPORT_MIME_TYPE = "application/json"
   EXPORT_FILENAME = "export.json"
 

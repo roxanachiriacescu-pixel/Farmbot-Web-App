@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @user_name = user.name
     @the_url = UserMailer.reset_url(user)
-    mail(to: @user.email, subject: "Welcome to The FarmBot Web App!")
+    mail(to: @user.email, subject: "Welcome to Holda!")
   end
 
   def password_reset(user, raw_token)
@@ -15,7 +15,7 @@ class UserMailer < ApplicationMailer
     url = UserMailer.url_object
     url.path = "/password_reset/#{raw_token}"
     @password_reset_url = url.to_s
-    mail(to: @user.email, subject: "FarmBot Password Reset Instructions")
+    mail(to: @user.email, subject: "Holda Password Reset Instructions")
   end
 
   # Much like welcome_email, it is used to check email validity.
@@ -27,7 +27,7 @@ class UserMailer < ApplicationMailer
     @the_url = UserMailer.reset_url(user)
 
     mail(to: @user.unconfirmed_email,
-         subject: "FarmBot Email Update Instructions")
+         subject: "Holda Email Update Instructions")
   end
 
   def self.reset_url(user)

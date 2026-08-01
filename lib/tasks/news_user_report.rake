@@ -1,7 +1,7 @@
 require_relative "../../app/lib/key_gen"
 
 class NewUserReportMailer < ActionMailer::Base
-  SUBJECT = "Daily Report: New FarmBot Setups"
+  SUBJECT = "Daily Report: New Holda Setups"
   HOST = ENV.fetch("API_HOST")
 
   default from: "farmbot-mailer@#{HOST}"
