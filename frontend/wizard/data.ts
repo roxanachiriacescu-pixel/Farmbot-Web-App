@@ -98,7 +98,7 @@ const WIZARD_TOC =
   (props: WizardStepDataProps): WizardToC => {
     const toc: WizardToC = {
       [WizardSectionSlug.intro]: { title: t("INTRO"), steps: [] },
-      [WizardSectionSlug.os]: { title: t("INSTALL FARMBOT OS"), steps: [] },
+      [WizardSectionSlug.os]: { title: t("INSTALL HOLDA OS"), steps: [] },
       [WizardSectionSlug.connectivity]: { title: t("CONNECTIVITY"), steps: [] },
       [WizardSectionSlug.map]: { title: t("MAP"), steps: [] },
       [WizardSectionSlug.motors]: { title: t("MOTORS"), steps: [] },
@@ -206,8 +206,8 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
       : SetupWizardContent.PRESS_RIGHT_JOG_BUTTON;
   const positiveMovementQuestion = (swap: boolean) =>
     swap
-      ? t("Did FarmBot **move away from you**?")
-      : t("Did FarmBot **move to the right**?");
+      ? t("Did Holda **move away from you**?")
+      : t("Did Holda **move to the right**?");
   const xyMovementInstruction = (swap: boolean) =>
     swap
       ? t("Press the up arrow.")
@@ -260,14 +260,14 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
     {
       section: WizardSectionSlug.intro,
       slug: WizardStepSlug.model,
-      title: t("FarmBot model"),
-      content: t("Select your FarmBot model."),
+      title: t("Holda model"),
+      content: t("Select your Holda model."),
       component: FirmwareHardwareSelection,
-      question: t("Have you selected your FarmBot model?"),
+      question: t("Have you selected your Holda model?"),
       outcomes: [
         {
           slug: "unknown",
-          description: t("I do not know my FarmBot model"),
+          description: t("I do not know my Holda model"),
           tips: t("Check your purchase confirmation email."),
         },
       ],
@@ -279,7 +279,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
         title: t("Raspberry Pi model"),
         content: SetupWizardContent.RPI,
         component: RpiSelection,
-        question: t("Have you identified which Raspberry Pi is in your FarmBot?"),
+        question: t("Have you identified which Raspberry Pi is in your Holda?"),
         outcomes: [
         ],
       }]
@@ -288,13 +288,13 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
       section: WizardSectionSlug.intro,
       slug: WizardStepSlug.assembled,
       title: t("Assembly"),
-      content: t("Assemble your FarmBot."),
+      content: t("Assemble your Holda."),
       component: AssemblyDocs,
-      question: t("Is FarmBot assembled and ready to power on?"),
+      question: t("Is Holda assembled and ready to power on?"),
       outcomes: [
         {
           slug: "assemble",
-          description: t("I still need to assemble FarmBot"),
+          description: t("I still need to assemble Holda"),
           tips: t("Visit the documentation."),
           component: AssemblyDocs,
         },
@@ -304,21 +304,21 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
       section: WizardSectionSlug.intro,
       slug: WizardStepSlug.prePowerPosition,
       title: isExpress(firmwareHardware)
-        ? t("Manually position the FarmBot")
-        : t("Move FarmBot away from the hardstops"),
+        ? t("Manually position the Holda")
+        : t("Move Holda away from the hardstops"),
       content: isExpress(firmwareHardware)
         ? SetupWizardContent.PRE_POWER_POSITION_EXPRESS
         : SetupWizardContent.PRE_POWER_POSITION,
       question: isExpress(firmwareHardware)
-        ? t("Is FarmBot positioned?")
-        : t("Is FarmBot positioned away from the hardstops?"),
+        ? t("Is Holda positioned?")
+        : t("Is Holda positioned away from the hardstops?"),
       outcomes: [
       ],
     },
     {
       section: WizardSectionSlug.os,
       slug: WizardStepSlug.downloadOs,
-      title: t("Download FarmBot OS"),
+      title: t("Download Holda OS"),
       content: SetupWizardContent.DOWNLOAD_OS,
       component: DownloadOS,
       question: t("Has the download finished?"),
@@ -356,7 +356,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
     {
       section: WizardSectionSlug.os,
       slug: WizardStepSlug.flashSdCard,
-      title: t("Install FarmBot OS onto the microSD card"),
+      title: t("Install Holda OS onto the microSD card"),
       content: SetupWizardContent.FLASH_SD_CARD,
       images: ["rpi_imager_flash.png"],
       question: t("Did the writing process complete?"),
@@ -366,7 +366,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
     {
       section: WizardSectionSlug.os,
       slug: WizardStepSlug.insertSdCard,
-      title: t("Insert the microSD card into FarmBot"),
+      title: t("Insert the microSD card into Holda"),
       content: isExpress(firmwareHardware)
         ? SetupWizardContent.INSERT_SD_CARD_EXPRESS
         : SetupWizardContent.INSERT_SD_CARD_GENESIS,
@@ -409,7 +409,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
       section: WizardSectionSlug.connectivity,
       slug: WizardStepSlug.power,
       title: t("Power up"),
-      content: t("Plug in FarmBot's power."),
+      content: t("Plug in Holda's power."),
       question: t("Did any lights in the electronics box light up?"),
       outcomes: [
         {
@@ -428,7 +428,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
       outcomes: [
         {
           slug: "noSetupNetwork",
-          description: t("The FarmBot WiFi network isn't showing up"),
+          description: t("The Holda WiFi network isn't showing up"),
           tips: SetupWizardContent.NO_SETUP_NETWORK,
         },
         {
@@ -468,7 +468,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
         {
           slug: "error",
           description: t("There was an error"),
-          tips: t("Check for the FarmBot WiFi network. If it is present,"),
+          tips: t("Check for the Holda WiFi network. If it is present,"),
           goToStep: {
             text: t("connect to Configurator"),
             step: WizardStepSlug.configuratorNetwork,
@@ -482,12 +482,12 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
       title: t("Online"),
       content: "",
       component: Connectivity,
-      question: t("Is FarmBot online?"),
+      question: t("Is Holda online?"),
       outcomes: [
         {
           slug: "offline",
-          description: t("FarmBot is offline"),
-          tips: t("Check for the FarmBot WiFi network. If it is present,"),
+          description: t("Holda is offline"),
+          tips: t("Check for the Holda WiFi network. If it is present,"),
           goToStep: {
             text: t("connect to Configurator"),
             step: WizardStepSlug.configuratorNetwork,
@@ -518,7 +518,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
       content: SetupWizardContent.MAP_ORIENTATION,
       video: ExternalUrl.Video.mapOrientation,
       component: MapOrientation,
-      question: t("Does the virtual FarmBot match your real life FarmBot?"),
+      question: t("Does the virtual Holda match your real life Holda?"),
       outcomes: [
         ...(is3D
           ? []
@@ -732,7 +732,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
       prerequisites: [botOnlineReq],
       content: SetupWizardContent.PRESS_DOWN_JOG_BUTTON,
       controlsCheckOptions: { axis: "z" },
-      question: t("Did FarmBot **move down**?"),
+      question: t("Did Holda **move down**?"),
       outcomes: [
         {
           slug: "nothing",
@@ -1231,7 +1231,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
       outcomes: [
         {
           slug: "stillPowered",
-          description: t("FarmBot's motors are still powered"),
+          description: t("Holda's motors are still powered"),
           tips: t("Check the E-STOP button wiring."),
         },
       ],
@@ -1249,7 +1249,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
         outcomes: [
           {
             slug: "stillUnpowered",
-            description: t("FarmBot's motors are still unpowered"),
+            description: t("Holda's motors are still unpowered"),
             tips: t("Check the UNLOCK button wiring."),
           },
         ],
@@ -1438,7 +1438,7 @@ export const WIZARD_STEPS = (props: WizardStepDataProps): WizardSteps => {
         {
           slug: "detectionError",
           description: t("There is a surface error message"),
-          tips: t("Move FarmBot to a different location and try again."),
+          tips: t("Move Holda to a different location and try again."),
           controlsCheckOptions: {},
         },
         {
