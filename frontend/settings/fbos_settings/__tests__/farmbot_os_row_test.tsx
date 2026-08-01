@@ -35,7 +35,7 @@ describe("<FarmbotOsRow />", () => {
 
   it("renders", () => {
     const { container } = render(<FarmbotOsRow {...fakeProps()} />);
-    ["Farmbot OS", "Version", "Release Notes"].map(string =>
+    ["Holda OS", "Version", "Release Notes"].map(string =>
       expect(container).toContainHTML(string));
   });
 
@@ -70,7 +70,7 @@ describe("<FarmbotOsRow />", () => {
     render(<FarmbotOsRow {...p} />);
     const button = screen.getByText("Release Notes");
     fireEvent.click(button);
-    expect(screen.getByText("FarmBot OS v1")).toBeInTheDocument();
+    expect(screen.getByText("Holda OS v1")).toBeInTheDocument();
   });
 
   it("uses fbos version", () => {
@@ -81,7 +81,7 @@ describe("<FarmbotOsRow />", () => {
     render(<FarmbotOsRow {...p} />);
     const button = screen.getByText("Release Notes");
     fireEvent.click(button);
-    expect(screen.getByText("FarmBot OS v2")).toBeInTheDocument();
+    expect(screen.getByText("Holda OS v2")).toBeInTheDocument();
   });
 });
 
@@ -89,35 +89,35 @@ describe("getOsReleaseNotesForVersion()", () => {
   it("fetches OS release notes", () => {
     const mockData = "intro\n\n# v10\n\n* note 10";
     const result = getOsReleaseNotesForVersion(mockData, "10.0.0");
-    expect(result.heading).toEqual("FarmBot OS v10");
+    expect(result.heading).toEqual("Holda OS v10");
     expect(result.notes).toEqual("* note 10");
   });
 
   it("falls back to recent OS version", () => {
     const mockData = "intro\n\n# v11\n\n* note 11";
     const result = getOsReleaseNotesForVersion(mockData, undefined);
-    expect(result.heading).toEqual("FarmBot OS v11");
+    expect(result.heading).toEqual("Holda OS v11");
     expect(result.notes).toEqual("* note 11");
   });
 
   it("falls back to known OS release note", () => {
     const mockData = "intro\n\n# v11\n\n* note 11\n\n# v13\n\n* note 13";
     const result = getOsReleaseNotesForVersion(mockData, "12.0.0");
-    expect(result.heading).toEqual("FarmBot OS v12");
+    expect(result.heading).toEqual("Holda OS v12");
     expect(result.notes).toEqual("* note 11\n");
   });
 
   it("falls back to latest OS release note", () => {
     const mockData = "intro\n\n# v10\n\n* note 10";
     const result = getOsReleaseNotesForVersion(mockData, "12.0.0");
-    expect(result.heading).toEqual("FarmBot OS v12");
+    expect(result.heading).toEqual("Holda OS v12");
     expect(result.notes).toEqual("* note 10");
   });
 
   it("fails to fetch OS release notes", () => {
     const mockData = undefined;
     const result = getOsReleaseNotesForVersion(mockData, "10.0.0");
-    expect(result.heading).toEqual("FarmBot OS v10");
+    expect(result.heading).toEqual("Holda OS v10");
     expect(result.notes).toEqual("Could not get release notes.");
   });
 });

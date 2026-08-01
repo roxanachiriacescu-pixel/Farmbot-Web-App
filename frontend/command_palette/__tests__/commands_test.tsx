@@ -255,7 +255,7 @@ describe("buildCommands()", () => {
     });
     expect(commands.find(command => command.id == "follow-farmbot"))
       .toMatchObject({
-        name: "Follow FarmBot",
+        name: "Follow Holda",
         imageIcon: expect.stringContaining("favicon"),
         imageIconClass: "farmbot-favicon",
       });
@@ -333,7 +333,7 @@ describe("buildCommands()", () => {
       "Take Photo", "Detect Weeds", "Measure Soil Height", "Calibrate",
     ]);
     expect(actions("farmbot:power")).toEqual([
-      "Reboot FarmBot", "Restart Firmware", "Shutdown FarmBot",
+      "Reboot Holda", "Restart Firmware", "Shutdown Holda",
     ]);
     expect(actions("camera:view")).toEqual([
       "Toggle Perspective", "Reset", "Follow Camera", "Follow UTM",
@@ -553,7 +553,7 @@ describe("buildCommands()", () => {
     const cases: [string, string, jest.SpyInstance][] = [
       [
         "reboot",
-        "Are you sure you want to reboot FarmBot?",
+        "Are you sure you want to reboot Holda?",
         reboot,
       ],
       [
@@ -563,7 +563,7 @@ describe("buildCommands()", () => {
       ],
       [
         "shutdown",
-        "Are you sure you want to shut down FarmBot?",
+        "Are you sure you want to shut down Holda?",
         powerOff,
       ],
     ];
@@ -1553,7 +1553,7 @@ describe("buildCommands()", () => {
       state: fakeState(), dispatch: jest.fn(), navigate,
     });
     const highlights = {
-      farmbot_settings: "farmbot",
+      farmbot_settings: "holda",
       power_and_reset: "power_and_reset",
       axis_settings: "axes",
       motors: "motors",
@@ -1603,7 +1603,7 @@ describe("buildCommands()", () => {
     expect(dispatch).toHaveBeenCalled();
   });
 
-  it("opens FarmBot shop and follow links in new tabs", () => {
+  it("opens Holda shop and follow links in new tabs", () => {
     const open = jest.spyOn(window, "open").mockReturnValue({} as Window);
     const assign = jest.spyOn(window.location, "assign")
       .mockImplementation(jest.fn());
@@ -1753,7 +1753,7 @@ describe("buildCommands()", () => {
     point?.actions?.find(action => action.id == "add-grid")?.execute();
     cropCurrent?.execute();
 
-    expect(cropCurrent?.unavailable).toEqual("FarmBot position unknown.");
+    expect(cropCurrent?.unavailable).toEqual("Holda position unknown.");
     expect(point?.actions?.some(action => action.id == "add-current"))
       .toEqual(false);
     expect(navigate).toHaveBeenCalledWith(Path.cropSearch("carrot"));
@@ -1938,7 +1938,7 @@ describe("buildCommands()", () => {
         expect.objectContaining({ value: "xyz;high" }),
       ]));
     expect(searchCommands(commands,
-      `Set FarmBot setting ${DeviceSetting.defaultAxisOrder}`))
+      `Set Holda setting ${DeviceSetting.defaultAxisOrder}`))
       .toContain(defaultAxisOrder);
     expect(updateConfig).toHaveBeenCalledWith({
       default_axis_order: "xyz;high",
@@ -2014,7 +2014,7 @@ describe("buildCommands()", () => {
     });
   });
 
-  it("confirms unstable FarmBot OS release channels", () => {
+  it("confirms unstable Holda OS release channels", () => {
     const updateConfig = jest.spyOn(deviceActions, "updateConfig")
       .mockImplementation(update => ({ update }) as never);
     const confirm = jest.spyOn(window, "confirm").mockReturnValue(false);
@@ -2550,7 +2550,7 @@ describe("buildCommands()", () => {
     expect(validateAnalog?.({ value: "255" })).toBeUndefined();
     expect(validNumberInput({ value: "" })).toEqual("Enter a valid number.");
     expect(validNumberInput({ value: "10" })).toBeUndefined();
-    expect(move?.unavailable).toEqual("FarmBot is offline.");
+    expect(move?.unavailable).toEqual("Holda is offline.");
     localStorage.setItem("myBotIs", "online");
     const locked = buildCommands({
       state, dispatch: jest.fn(), navigate: jest.fn(),

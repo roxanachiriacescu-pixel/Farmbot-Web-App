@@ -85,7 +85,7 @@ describe("jobNameLookup()", () => {
   it("returns OS update", () => {
     const jobWithTitle = addTitleToJobProgress(
       ["FBOS_OTA", fakePercentJob({ type: "ota" })]);
-    expect(jobNameLookup(jobWithTitle)).toEqual("FarmBot OS update");
+    expect(jobNameLookup(jobWithTitle)).toEqual("Holda OS update");
   });
 });
 

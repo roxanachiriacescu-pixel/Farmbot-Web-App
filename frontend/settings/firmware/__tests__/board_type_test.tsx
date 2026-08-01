@@ -31,7 +31,7 @@ beforeEach(() => {
         <span data-testid="select-list">{JSON.stringify(props.list)}</span>
         <span data-testid="extra-class">{props.extraClass || ""}</span>
         <button onClick={() => props.onChange({
-          label: "Farmduino (Genesis v1.3)",
+          label: "Farmduino (Holda One Pro)",
           value: "farmduino",
         })}>
           select-farmduino
@@ -62,7 +62,7 @@ describe("<BoardType/>", () => {
     p.firmwareHardware = "farmduino";
     render(<BoardType {...p} />);
     expect(screen.getByTestId("selected-item").textContent).toEqual(JSON.stringify({
-      label: "Farmduino (Genesis v1.3)",
+      label: "Farmduino (Holda One Pro)",
       value: "farmduino",
     }));
     expect(screen.getByTestId("extra-class").textContent).not.toContain("dim");
@@ -74,7 +74,7 @@ describe("<BoardType/>", () => {
     p.sourceFbosConfig = () => ({ value: true, consistent: false });
     render(<BoardType {...p} />);
     expect(screen.getByTestId("selected-item").textContent).toEqual(JSON.stringify({
-      label: "Farmduino (Genesis v1.3)",
+      label: "Farmduino (Holda One Pro)",
       value: "farmduino",
     }));
     expect(screen.getByTestId("extra-class").textContent).toContain("dim");
@@ -98,14 +98,14 @@ describe("<BoardType/>", () => {
       Array<{ label: string, value: string }>;
     const labels = list.map(item => item.label);
     [
-      "Farmduino (Genesis v1.7)",
-      "Farmduino (Genesis v1.6)",
-      "Farmduino (Genesis v1.5)",
-      "Farmduino (Genesis v1.4)",
-      "Farmduino (Genesis v1.3)",
-      "Arduino/RAMPS (Genesis v1.2)",
-      "Farmduino (Express v1.1)",
-      "Farmduino (Express v1.0)",
+      "Farmduino (Holda One Pro)",
+      "Farmduino (Holda One Pro)",
+      "Farmduino (Holda One Pro)",
+      "Farmduino (Holda One Pro)",
+      "Farmduino (Holda One Pro)",
+      "Arduino/RAMPS (Holda One Pro)",
+      "Farmduino (Holda One)",
+      "Farmduino (Holda One)",
       "None",
     ].map(label => {
       expect(labels).toContain(label);
@@ -118,7 +118,7 @@ describe("<BoardType/>", () => {
     const list = JSON.parse(screen.getByTestId("select-list").textContent || "[]") as
       Array<{ label: string, value: string }>;
     const labels = list.map(item => item.label);
-    expect(labels).toContain("Farmduino (Express v1.2)");
-    expect(labels).toContain("Farmduino (Genesis v1.8)");
+    expect(labels).toContain("Farmduino (Holda One)");
+    expect(labels).toContain("Farmduino (Holda One Pro)");
   });
 });

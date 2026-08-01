@@ -36,9 +36,9 @@ describe("<Diagnosis/>", () => {
 
   it("navigates on click", () => {
     render(<Diagnosis {...fakeProps()} />);
-    const link = screen.getByText("upgrade FarmBot OS");
+    const link = screen.getByText("upgrade Holda OS");
     fireEvent.click(link);
-    expect(mockNavigate).toHaveBeenCalledWith(Path.settings("farmbot_os"));
+    expect(mockNavigate).toHaveBeenCalledWith(Path.settings("holda_os"));
   });
 });
 

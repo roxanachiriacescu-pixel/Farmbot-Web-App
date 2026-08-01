@@ -33,7 +33,7 @@ describe("<FirmwareHardwareStatusDetails />", () => {
     const p = fakeProps();
     p.apiFirmwareValue = "arduino";
     const { container } = render(<FirmwareHardwareStatusDetails {...p} />);
-    expect(container.textContent).toContain("Arduino/RAMPS (Genesis v1.2)");
+    expect(container.textContent).toContain("Arduino/RAMPS (Holda One Pro)");
   });
 });
 

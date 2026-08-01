@@ -148,9 +148,9 @@ describe("<AlertCard />", () => {
     expect(container.querySelectorAll(".fa-times").length).toEqual(0);
     expect(container.textContent).toContain("Apr");
     expect(container.textContent).not.toContain("Select one");
-    expect(container.textContent).toContain("Arduino/RAMPS (Genesis v1.2)");
+    expect(container.textContent).toContain("Arduino/RAMPS (Holda One Pro)");
     expect(container.querySelector(".fb-select-mock")?.getAttribute("data-list"))
-      .toContain("v1.1");
+      .toContain("express_k11");
   });
 
   it("renders firmware card with new boards", () => {
@@ -164,7 +164,7 @@ describe("<AlertCard />", () => {
     const { container } = render(<AlertCard {...p} />);
     expect(container.textContent).toContain("Your device has no firmware");
     expect(container.querySelector(".fb-select-mock")?.getAttribute("data-list"))
-      .toContain("v1.1");
+      .toContain("express_k11");
   });
 
   it("renders seed data card", () => {
@@ -173,7 +173,7 @@ describe("<AlertCard />", () => {
     const { container } = render(<AlertCard {...p} />);
     const selectProps = fbSelectSpy.mock.calls[0][0] as FBSelectProps;
 
-    expect(container.textContent).toContain("FarmBot");
+    expect(container.textContent).toContain("Holda");
     expect(container.querySelector(".fb-select-mock")?.getAttribute("data-list"))
       .toContain("v1.1");
     expect(selectProps.itemListFilter).toEqual(maybeShowStressSeedOptions);
@@ -184,7 +184,7 @@ describe("<AlertCard />", () => {
     const p = fakeProps();
     p.alert.problem_tag = "api.seed_data.missing";
     const { container } = render(<AlertCard {...p} />);
-    expect(container.textContent).toContain("FarmBot");
+    expect(container.textContent).toContain("Holda");
     expect(container.querySelector(".fb-select-mock")?.getAttribute("data-list"))
       .toContain("v1.1");
   });

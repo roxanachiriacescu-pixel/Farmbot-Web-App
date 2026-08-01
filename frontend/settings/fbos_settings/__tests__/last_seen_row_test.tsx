@@ -50,7 +50,7 @@ describe("<LastSeen />", () => {
     p.bot.connectivity.uptime["bot.mqtt"] = undefined;
     const { container } = render(<LastSeen {...p} />);
     expect((container.textContent || "").toLowerCase())
-      .toEqual("farmbot was last seen august 7, 2017 7:40pm");
+      .toEqual("holda was last seen august 7, 2017 7:40pm");
   });
 
   it("handles a click", () => {

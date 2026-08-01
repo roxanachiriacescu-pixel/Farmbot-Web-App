@@ -14,7 +14,7 @@ describe("<LayerToggle />", () => {
 
   it("renders", () => {
     const { container } = render(<LayerToggle {...fakeProps()} />);
-    expect(container.textContent).toContain("FarmBot");
+    expect(container.textContent).toContain("Holda");
     expect(container.innerHTML).toContain("green");
   });
 

@@ -176,7 +176,7 @@ describe("<LocationInfo />", () => {
         <LocationInfo {...p} />
       </NavigationContext.Provider>));
     expect(container.textContent?.toLowerCase())
-      .toContain("9mm from farmbot");
+      .toContain("9mm from holda");
     jest.clearAllMocks();
     fireEvent.click(container.querySelector(".add-point") as HTMLElement);
     expect(p.dispatch).toHaveBeenCalledWith({

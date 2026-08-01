@@ -279,7 +279,7 @@ describe("sync()", () => {
     state.bot.hardware.informational_settings.controller_version = undefined;
     deviceActions().sync()(jest.fn(), () => state);
     expect(mockDevice.current.sync).not.toHaveBeenCalled();
-    expect(info).toHaveBeenCalledWith("FarmBot is not connected.", {
+    expect(info).toHaveBeenCalledWith("Holda is not connected.", {
       title: "Disconnected", color: "red",
     });
   });
@@ -1040,7 +1040,7 @@ const expectBadVersionCall = (noDismiss = true) => {
   expect(error).toHaveBeenCalledWith(expect.stringContaining("old version"), {
     title: "Please Update",
     noTimer: true,
-    redirect: Path.settings("farmbot_os"),
+    redirect: Path.settings("holda_os"),
     noDismiss,
     idPrefix: "EOL",
   });

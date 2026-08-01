@@ -335,7 +335,7 @@ describe("fetchOsUpdateVersion()", () => {
     await expect(console.error).toHaveBeenCalledWith(
       JSON.stringify({ data: { version: "error" } }));
     expect(console.error).toHaveBeenCalledWith(
-      "Could not download FarmBot OS update information.");
+      "Could not download Holda OS update information.");
     expect(innerDispatch).toHaveBeenCalledWith({
       type: Actions.FETCH_OS_UPDATE_INFO_OK,
       payload: { version: undefined },
@@ -353,7 +353,7 @@ describe("fetchOsUpdateVersion()", () => {
     await expect(console.error).toHaveBeenCalledWith(
       expect.stringContaining("error 404"));
     expect(console.error).toHaveBeenCalledWith(
-      "Could not download FarmBot OS update information.");
+      "Could not download Holda OS update information.");
     expect(console.error).toHaveBeenCalledWith(
       "No releases found for platform and channel.");
     expect(innerDispatch).toHaveBeenCalledWith({

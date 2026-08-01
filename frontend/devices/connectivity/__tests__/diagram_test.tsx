@@ -67,14 +67,14 @@ describe("<ConnectivityDiagram/>", () => {
   it("renders diagram", () => {
     const { container } = svgMount(<ConnectivityDiagram {...fakeProps()} />);
     expect(container.textContent)
-      .toContain("This computerWeb AppMessage BrokerFarmBotRaspberry PiF");
+      .toContain("This computerWeb AppMessage BrokerHoldaRaspberry PiF");
   });
 
   it("renders small diagram", () => {
     setWindowWidth(400);
     const { container } = svgMount(<ConnectivityDiagram {...fakeProps()} />);
     expect(container.textContent)
-      .toContain("This phoneWeb AppMessage BrokerFarmBotRaspberry PiF");
+      .toContain("This phoneWeb AppMessage BrokerHoldaRaspberry PiF");
   });
 
   it("hover", () => {

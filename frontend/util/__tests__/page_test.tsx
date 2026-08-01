@@ -7,17 +7,17 @@ import * as reactDomClient from "react-dom/client";
 describe("updatePageInfo()", () => {
   it("sets page title", () => {
     updatePageInfo("page name");
-    expect(document.title).toEqual("Page name - FarmBot");
+    expect(document.title).toEqual("Page name - Holda");
   });
 
   it("sets page title: Farm Designer", () => {
     updatePageInfo("designer");
-    expect(document.title).toEqual("Farm designer - FarmBot");
+    expect(document.title).toEqual("Farm designer - Holda");
   });
 
   it("sets page title: Farm Designer: Plants", () => {
     updatePageInfo("designer", "plants");
-    expect(document.title).toEqual("Farm designer: Plants - FarmBot");
+    expect(document.title).toEqual("Farm designer: Plants - Holda");
   });
 });
 

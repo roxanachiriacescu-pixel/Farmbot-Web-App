@@ -95,7 +95,7 @@ describe("<FbosDetails />", () => {
       "Node name", "fakeName",
       "Version last seen", "1.0.0",
       "Device ID", "12345",
-      "Firmware", "0.0.0 Arduino/RAMPS (Genesis v1.2)",
+      "Firmware", "0.0.0 Arduino/RAMPS (Holda One Pro)",
       "Firmware commit", "fakeFwCo",
       "Firmware code", "0.0.0.R.ramps",
       "Firmware path", "ttyACM0",
@@ -427,9 +427,9 @@ describe("convertUptime()", () => {
 describe("reformatFwVersion()", () => {
   it("returns version string", () => {
     expect(reformatFwVersion("1.0.0.R"))
-      .toEqual("v1.0.0 Arduino/RAMPS (Genesis v1.2)");
+      .toEqual("v1.0.0 Arduino/RAMPS (Holda One Pro)");
     expect(reformatFwVersion("1.0.0.F.x"))
-      .toEqual("v1.0.0 Farmduino (Genesis v1.3)");
+      .toEqual("v1.0.0 Farmduino (Holda One Pro)");
   });
 
   it("returns null version string", () => {

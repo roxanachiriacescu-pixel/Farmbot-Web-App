@@ -363,7 +363,7 @@ describe("<NavBar />", () => {
     const props = fakeProps();
     props.device.body.name = "";
     const { container } = renderNavBar(props);
-    expect(container.textContent || "").toContain("FarmBot");
+    expect(container.textContent || "").toContain("Holda");
   });
 
   it("displays setup button", () => {

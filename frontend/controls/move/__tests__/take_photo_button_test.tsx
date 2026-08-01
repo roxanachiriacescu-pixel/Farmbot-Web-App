@@ -73,7 +73,7 @@ describe("<TakePhotoButton />", () => {
     const { container } = render(<TakePhotoButton {...p} />);
     const cameraBtn = container.querySelector("button");
     expect(cameraBtn?.classList.contains("pseudo-disabled")).toBeTruthy();
-    expect(cameraBtn?.title).toEqual("FarmBot is offline");
+    expect(cameraBtn?.title).toEqual("Holda is offline");
   });
 
   it("shows as taken", () => {

@@ -254,7 +254,7 @@ describe("<GoToThisLocationButton />", () => {
     const p = fakeProps();
     p.botOnline = false;
     const { container } = render(<GoToThisLocationButton {...p} />);
-    expect(container.textContent?.toLowerCase()).toContain("farmbot is offline");
+    expect(container.textContent?.toLowerCase()).toContain("holda is offline");
     fireEvent.click(defaultButtons(container)[0]);
     expect(deviceActions.move).not.toHaveBeenCalled();
   });
@@ -263,7 +263,7 @@ describe("<GoToThisLocationButton />", () => {
     const p = fakeProps();
     p.arduinoBusy = true;
     const { container } = render(<GoToThisLocationButton {...p} />);
-    expect(container.textContent?.toLowerCase()).toContain("farmbot is busy");
+    expect(container.textContent?.toLowerCase()).toContain("holda is busy");
   });
 
   it("moves: default", () => {
