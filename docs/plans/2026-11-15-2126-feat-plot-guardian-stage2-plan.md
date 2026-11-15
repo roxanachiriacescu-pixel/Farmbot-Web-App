@@ -13,9 +13,12 @@ execution: code
 ## Goal Capsule
 
 - **Objective:** A city owner of a countryside vegetable plot can rely on short text reports about beds and the gate without driving out, including when the public internet is down.
-- **Means:** An on-plot hub runs local vision, sends a daily coded digest, rare heartbeats, and person-at-gate alerts, and answers text questions from the latest images over Stage 1's low-connectivity link.
+- **Means:** New top-level `plot_guardian/` hub package with Frigate-backed gate vision, pluggable plant vision, RTSP-first cameras, and SMS LinkPort (KTD1–KTD4).
 - **Product authority:** This plan owns Plot Guardian Stage 2 (eyes and local AI) only. Stage 1 (water and link) and Stage 3 (robot gantry) are surrounding areas, not active scope.
-- **Open blockers:** None. Remaining items are deferred to planning.
+- **Product Contract preservation:** Product Contract unchanged.
+- **Open blockers:** None.
+- **Execution profile:** Implement and verify under `plot_guardian/` with pytest; do not modify FarmBot `app/` or `frontend/` for Stage 2.
+- **Who finishes:** Implementer ships `plot_guardian/` runnable on a Raspberry Pi–class hub with mocked integration tests green.
 
 ---
 
@@ -216,20 +219,255 @@ flowchart TB
 
 - None.
 
-**Deferred to Planning**
+**Deferred to Implementation**
 
-- Exact coded digest field set and encoding (beyond examples like wilting / weeds / person time).
-- Heartbeat interval and grace period before "missed."
-- Person-at-gate confirmation / confidence thresholds and uncertain-label wording.
-- Q&A image stale threshold and capture-on-question power budget.
-- Expected-visitor / quiet-window UX and how schedules reach the hub over Stage 1.
-- How vendor/cloud camera adapters are selected and authenticated when the net is up.
-- Hub wake policy details (motion vs few-times-daily power budget).
-- On-hub retention TTL for hub-managed frames that include person imagery.
-- Whether any FarmBot on-device camera/plant-detection pieces are reused as optional Stage 3 adjacency later, without pulling Stage 2 onto the FarmBot cloud path.
+- Exact plant/weed model weights and training set for Romanian vegetable beds (U4 ships interface + stub; real weights are a data task).
+- Vendor/cloud camera adapter auth details when internet is up (optional path; stub OK for first ship).
+- Whether any FarmBot on-device camera/plant-detection pieces are reused as optional Stage 3 adjacency later (explicitly out of Stage 2 units).
 
 ### Sources / Research
 
 - Dialogue settled Stage 2 scope, Guardian digest + rare heartbeat, soft image rule, and calamity-oriented durability.
-- Repo grounding dossier (scratch): confirms FarmBot cloud webcam / GCS / device photo / OpenAI-Lua patterns as contrast, not Stage 2 precursors — see claim verification against `app/models/webcam_feed.rb`, `frontend/controls/webcam/webcam_img.tsx`, `app/models/image.rb`, `frontend/photos/actions.ts`, `frontend/devices/actions.ts`, `app/controllers/api/ais_controller.rb`.
-- Document review (2026-11-15): applied entailed and proposed fixes for local-camera must-have, false-alarm / confidence policy, expected-visitor quieting, owner-channel binding, no local-frame off-plot upload, Q&A freshness, and monitoring-path heartbeat meaning.
+- Repo research: no on-plot hub exists; FarmBot GCS/WebcamFeed/MQTT patterns are contrast-only; new top-level package is greenfield vs Rails monolith.
+- External landscape: Frigate (MIT) for local RTSP person events; Pi 5 + Hailo/NCNN YOLO for edge weeds; Gammu/SMSD-style GSM modem for offline SMS; LoRa alone is insufficient for 50–100 km city reach; Ultralytics AGPL caution for closed hubs.
+- Document review (2026-11-15): local-camera must-have, confidence policy, quiet windows, owner binding, no local-frame upload, Q&A freshness, monitoring-path heartbeat meaning.
+
+---
+
+## Planning Contract
+
+### Key Technical Decisions
+
+- KTD1. **New top-level `plot_guardian/` package.** (session-settled: user-approved — chosen over extending FarmBot `app/`/`frontend/`: cloud GCS/webcam/MQTT patterns fight on-plot image retention.) Hub runtime is Python + Docker Compose on a Raspberry Pi–class SBC. No Stage 2 changes under `app/` or `frontend/`.
+- KTD2. **Frigate for person/gate + pluggable plant vision.** Prefer Frigate (MIT) for RTSP person events and local retention; plant/wilt/weed runs as a separate detector plugin (ONNX/NCNN). Avoid Ultralytics AGPL weights as the default plant stack unless Enterprise is acquired.
+- KTD3. **`LinkPort` abstraction; first adapter is local GSM/SMS.** Stage 2 does not build the LoRa relay chain. SMS via hub modem (Gammu/SMSD-style) is the first concrete adapter; a Stage1Stub adapter supports tests. LoRa remains an interface stub for Stage 1.
+- KTD4. **Enrollment = allowlist + shared secret or challenge–response.** From-number alone is spoofable. Outbound digests/alerts/heartbeats and inbound Q&A bind to enrolled owner channel(s) per R13.
+- KTD5. **Compact text codec, not JSON images.** One short line / few-line schema for digest, alert, heartbeat, Q&A; never attach images (R14).
+- KTD6. **Configurable defaults for intervals.** Digest daily at configured local time; heartbeat every 12h with 6h grace; Q&A stale threshold 2h; person confidence score threshold configurable (default 0.7). Owner-facing missed-heartbeat copy uses monitoring-path unknown wording (R5).
+
+### Alternatives Considered
+
+- **Extend FarmBot device photo + MQTT logs** — rejected: GCS upload and browser webcam URLs contradict R1/R10/R14 and calamity offline vision.
+- **Single custom YOLO stack for gate and beds** — deferred as optional later consolidation; Frigate wins first ship for person/events/retention; plant models remain swappable.
+- **Twilio cloud SMS as primary adapter** — rejected for calamity path (needs internet); may be a later city-side companion, not hub primary.
+- **LoRa as sole 50–100 km pipe** — rejected by range research; LoRa is plot↔relay (Stage 1), SMS/cell is last mile.
+
+### High-Level Technical Design
+
+```mermaid
+flowchart TB
+  cams[RTSP/USB cameras] --> frigate[Frigate person events]
+  cams --> plant[Plant vision plugin]
+  frigate --> hub[plot_guardian hub]
+  plant --> hub
+  hub --> codec[Compact message codec]
+  codec --> link[LinkPort]
+  link --> sms[SMS modem adapter]
+  link --> stub[Stage1Stub tests]
+  owner[Enrolled owner phone] --> sms
+  sms --> owner
+  cfg[hub.yaml enrollment quiet windows] --> hub
+```
+
+### Output Structure
+
+```text
+plot_guardian/
+  README.md
+  pyproject.toml
+  docker-compose.yml          # hub + Frigate
+  config/hub.example.yaml
+  src/plot_guardian/
+    __init__.py
+    codec.py                  # compact messages
+    link/
+      base.py                 # LinkPort
+      sms_modem.py
+      stub.py
+      enrollment.py
+    cameras/
+      rtsp.py
+      store.py                # local frames; no upload
+    vision/
+      person_frigate.py
+      plant_plugin.py
+      confidence.py
+    schedule/
+      digest.py
+      heartbeat.py
+      quiet_windows.py
+    qa/
+      service.py
+    hub.py                    # orchestration
+  tests/
+    test_codec.py
+    test_enrollment.py
+    test_confidence.py
+    test_quiet_windows.py
+    test_qa_freshness.py
+    test_hub_flows.py
+```
+
+### Assumptions
+
+- Hub has LAN reach to at least one RTSP or USB camera and enough power for Pi-class duty cycles.
+- First ship may run plant vision as a stub returning `uncertain` until weights exist — gate/person path must still work.
+- Owner can complete one-time enrollment while a trusted channel exists (physical presence or temporary connectivity).
+- Stage 1 LoRa relays are not required for Stage 2 SMS adapter tests.
+
+### System-Wide Impact
+
+- Adds a sibling product tree beside FarmBot web; CI should run `plot_guardian` tests without coupling to `rspec`/`bun test` of the web app unless a root CI matrix is extended later.
+- Does not change FarmBot device firmware, GCS images, or OpenAI Lua paths.
+
+### Implementation Constraints
+
+- Do not add dependencies that require cloud inference at runtime for the primary path.
+- Do not upload hub-managed frames off-plot (R10).
+- Prefer MIT/Apache-licensed default detectors; document AGPL if an optional plugin uses it.
+
+### Sequencing
+
+U1 → U2 → U3 → U4 → U5 → U6 → U7 (U4 and U5 can overlap after U3; U6 needs U3–U5).
+
+---
+
+## Implementation Units
+
+### U1. Scaffold `plot_guardian` package
+
+- **Goal:** Create the runnable package layout, example config, and Docker Compose skeleton with Frigate service stubbed.
+- **Requirements:** R1
+- **Dependencies:** None
+- **Files:** `plot_guardian/pyproject.toml`, `plot_guardian/docker-compose.yml`, `plot_guardian/config/hub.example.yaml`, `plot_guardian/src/plot_guardian/__init__.py`, `plot_guardian/README.md`, `plot_guardian/tests/test_scaffold_imports.py`
+- **Approach:**
+  1. Add Python package metadata and pytest.
+  2. Example `hub.yaml` keys: owner enrollment, camera URLs, digest time, heartbeat interval, stale threshold, confidence threshold, quiet windows.
+  3. Compose file mounts config and declares Frigate + hub services (hub command can be placeholder until U7).
+- **Patterns to follow:** Greenfield package; do not mirror Rails `app/mutations`.
+- **Test scenarios:**
+  - Package imports cleanly under pytest.
+  - Example config loads and exposes required keys.
+- **Verification:** `cd plot_guardian && pytest tests/test_scaffold_imports.py`
+
+### U2. Compact message codec
+
+- **Goal:** Encode/decode digest, person-at-gate alert, heartbeat, and Q&A reply/request as short texts without images.
+- **Requirements:** R3, R4, R5, R6, R7, R14; F1–F4; AE1–AE4
+- **Dependencies:** U1
+- **Files:** `plot_guardian/src/plot_guardian/codec.py`, `plot_guardian/tests/test_codec.py`
+- **Approach:**
+  1. Define message kinds: `DIGEST`, `ALERT`, `HEARTBEAT`, `QA_REQ`, `QA_ANS`.
+  2. Digest fields include bed codes and `uncertain` markers (R7).
+  3. Alert includes gate id + time; heartbeat includes last-seen; Q&A answer includes image age.
+  4. Reject any payload that would embed image bytes/URLs for owner-facing messages.
+- **Test scenarios:**
+  - Round-trip each message kind.
+  - Uncertain wilt claim encodes visibly.
+  - Codec refuses image attachment fields.
+  - Covers AE1 / AE2 / AE3 / AE4 wording shapes at the text layer.
+
+### U3. LinkPort, SMS adapter, enrollment
+
+- **Goal:** Deliver and accept short texts only for the enrolled owner.
+- **Requirements:** R11, R13; AE8; KTD3, KTD4
+- **Dependencies:** U2
+- **Files:** `plot_guardian/src/plot_guardian/link/base.py`, `sms_modem.py`, `stub.py`, `enrollment.py`, `plot_guardian/tests/test_enrollment.py`, `plot_guardian/tests/test_link_stub.py`
+- **Approach:**
+  1. `LinkPort.send(text)` / `LinkPort.poll_inbound()` interface.
+  2. `Stage1Stub` records outbound and injects inbound for tests.
+  3. SMS modem adapter wraps local modem/SMSD; keep hardware optional behind interface.
+  4. Enrollment store: owner address + secret; inbound auth = allowlist + secret/challenge (not From alone).
+- **Test scenarios:**
+  - Covers AE8: non-enrolled inbound Q&A ignored.
+  - Enrolled inbound accepted after secret/challenge.
+  - Stub send records digest text for later hub tests.
+  - Spoofed From without secret rejected.
+
+### U4. Cameras and local frame store
+
+- **Goal:** Require local RTSP/USB capture; store frames on hub; never upload hub-managed frames.
+- **Requirements:** R9, R10, R14; AE5, AE6
+- **Dependencies:** U1
+- **Files:** `plot_guardian/src/plot_guardian/cameras/rtsp.py`, `store.py`, `plot_guardian/tests/test_camera_store.py`
+- **Approach:**
+  1. Config must list ≥1 local camera; boot fails closed if missing.
+  2. Frame store writes under hub data dir with capture timestamps.
+  3. Explicit `upload`/`forward` APIs absent; tests assert no HTTP upload helpers for local frames.
+  4. Optional vendor camera source gated on `internet_ok` flag (mockable).
+- **Test scenarios:**
+  - Covers AE5: with internet down, local camera still yields frames.
+  - Covers AE6: vendor-only config without local camera fails validation.
+  - Stored frame exposes age for Q&A.
+  - No off-plot upload function invoked for local frames.
+
+### U5. Vision: person confidence + plant plugin
+
+- **Goal:** Person-at-gate events with confirmation policy; plant plugin returns wilt/weed or uncertain.
+- **Requirements:** R2, R4, R7, R8; AE2, AE7; KTD2, KTD6
+- **Dependencies:** U4
+- **Files:** `plot_guardian/src/plot_guardian/vision/person_frigate.py`, `plant_plugin.py`, `confidence.py`, `plot_guardian/src/plot_guardian/schedule/quiet_windows.py`, `plot_guardian/tests/test_confidence.py`, `plot_guardian/tests/test_quiet_windows.py`
+- **Approach:**
+  1. Map Frigate MQTT/event JSON into internal `PersonEvent` with score.
+  2. Emit alert only if score ≥ threshold and outside quiet windows.
+  3. Plant plugin interface; default stub returns uncertain until weights supplied.
+  4. Quiet windows from config (cron-like or start/end list).
+- **Test scenarios:**
+  - Covers AE2: high-score person outside quiet window → alert candidate.
+  - Low-score person suppressed.
+  - Covers AE7: person inside quiet window suppressed.
+  - Plant stub yields uncertain, never false-certain wilt.
+
+### U6. Digest, heartbeat, Q&A services
+
+- **Goal:** Daily digest, rare heartbeats, and age-aware Q&A answers.
+- **Requirements:** R3, R5, R6, R7; F1, F3, F4; AE1, AE3, AE4
+- **Dependencies:** U2, U3, U5
+- **Files:** `plot_guardian/src/plot_guardian/schedule/digest.py`, `heartbeat.py`, `plot_guardian/src/plot_guardian/qa/service.py`, `plot_guardian/tests/test_qa_freshness.py`, `plot_guardian/tests/test_digest_heartbeat.py`
+- **Approach:**
+  1. Digest job pulls latest plant+person summaries, encodes via codec, sends via LinkPort.
+  2. Heartbeat job sends alive line on interval from KTD6.
+  3. Q&A: if latest frame age > stale threshold, capture fresh; always include age in answer; mark uncertain per R7.
+- **Test scenarios:**
+  - Covers AE1: digest send uses stub LinkPort.
+  - Covers AE3: answer includes age; stale frames trigger recapture hook.
+  - Heartbeat text matches alive schema.
+  - Owner-facing docs/comments for missed heartbeat use monitoring-path unknown (R5) — assert constant string used in README or message help text.
+
+### U7. Hub orchestration and flow tests
+
+- **Goal:** Wire schedule, vision, cameras, and link into one hub process; prove end-to-end flows with mocks.
+- **Requirements:** R1–R14 as integrated; F1–F4; AE1–AE8
+- **Dependencies:** U1–U6
+- **Files:** `plot_guardian/src/plot_guardian/hub.py`, `plot_guardian/tests/test_hub_flows.py`, `plot_guardian/README.md`
+- **Approach:**
+  1. Hub loads config, validates local camera + enrollment, starts loops.
+  2. Integration tests inject Frigate events and inbound SMS via stubs.
+  3. README documents enrollment, missed-heartbeat meaning, and that FarmBot cloud is out of path.
+- **Execution note:** Prefer characterization-style hub flow tests before any hardware smoke.
+- **Test scenarios:**
+  - Covers AE1–AE8 via stubbed cameras/link/vision where applicable.
+  - Boot fails without local camera or enrollment.
+  - Internet-down flag disables vendor source only.
+
+---
+
+## Verification Contract
+
+| Gate | Command | Applies |
+|------|---------|---------|
+| Unit + flow tests | `cd plot_guardian && pytest` | Always for Stage 2 units |
+| Lint (when configured) | `cd plot_guardian && ruff check src tests` | After U1 adds ruff |
+| FarmBot suite | Do **not** require `rspec` / `bun test` for Stage 2-only diffs | Unless `app/` or `frontend/` touched (they should not be) |
+| Hardware smoke | Optional: Frigate + one RTSP cam + modem on Pi | Manual; not CI-blocking |
+
+---
+
+## Definition of Done
+
+- All U1–U7 test scenarios pass under `pytest`.
+- Product Contract R1–R14 each cited by at least one unit.
+- No Stage 2 code path uploads hub-managed frames or depends on FarmBot GCS/OpenAI vision.
+- README states enrollment, monitoring-path missed-heartbeat meaning, and Stage 1/3 boundaries.
+- Abandoned experiment code removed from the diff.
+- PR description notes `plot_guardian/` is intentionally separate from FarmBot web runtime.
