@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ideation: FarmBot Web App opportunities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f3f6f2;
+    --bg-accent: #e4ebe3;
+    --ink: #1c241c;
+    --muted: #5a675a;
+    --line: #c5d0c4;
+    --card: #ffffff;
+    --accent: #2f6b4f;
+    --accent-soft: #d7ebe0;
+    --warn: #8a5a12;
+    --warn-bg: #f7edd8;
+    --shadow: 0 1px 0 rgba(28,36,28,0.06), 0 12px 32px rgba(28,36,28,0.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 500px at 10% -10%, #dfeadf 0%, transparent 55%),
+      linear-gradient(180deg, #eef3ec 0%, var(--bg) 220px);
+    font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+  header.doc-header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+  h1 {
+    font-family: Fraunces, Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    line-height: 1.15;
+    margin: 0 0 0.75rem;
+  }
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem;
+    color: var(--muted); font-size: 0.95rem;
+  }
+  .meta strong { color: var(--ink); font-weight: 600; }
+  nav.toc {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+  }
+  nav.toc h2 { margin: 0 0 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  nav.toc ol { margin: 0; padding-left: 1.2rem; }
+  nav.toc a { color: var(--accent); text-decoration: none; }
+  nav.toc a:hover { text-decoration: underline; }
+  section { margin: 2.25rem 0; }
+  h2 {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 1.45rem;
+    margin: 0 0 0.85rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 { font-size: 1.1rem; margin: 1.25rem 0 0.4rem; }
+  p, li { color: var(--ink); }
+  .muted { color: var(--muted); }
+  .jump {
+    display: flex; flex-wrap: wrap; gap: 0.4rem 0.85rem;
+    margin: 0 0 1.25rem; font-size: 0.92rem;
+  }
+  .jump a { color: var(--accent); text-decoration: none; }
+  .jump a:hover { text-decoration: underline; }
+  .idea {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.25rem 1.35rem 1.4rem;
+    margin: 0 0 1.15rem;
+    box-shadow: var(--shadow);
+  }
+  .idea-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0.85rem;
+    margin-bottom: 0.55rem;
+  }
+  .rank {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.7rem; height: 1.7rem; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    font-weight: 700; font-size: 0.85rem;
+  }
+  .idea h3 { margin: 0; font-family: Fraunces, Georgia, serif; font-size: 1.25rem; }
+  .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.35rem 0 0.75rem; }
+  .badge {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em;
+    padding: 0.2rem 0.55rem; border-radius: 999px;
+    background: var(--bg-accent); color: var(--muted);
+  }
+  .badge.conf-high { background: var(--accent-soft); color: var(--accent); }
+  .badge.conf-med { background: var(--warn-bg); color: var(--warn); }
+  .field-label {
+    font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--muted); margin: 0.85rem 0 0.2rem;
+  }
+  .basis { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.86rem; background: #f7faf6; border-left: 3px solid var(--accent); padding: 0.65rem 0.8rem; }
+  .downsides { background: var(--warn-bg); border-radius: 8px; padding: 0.65rem 0.8rem; }
+  table.reject { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  table.reject th, table.reject td {
+    text-align: left; vertical-align: top;
+    border-bottom: 1px solid var(--line); padding: 0.55rem 0.4rem;
+  }
+  table.reject th { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  footer.composition-signal {
+    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 0.85rem;
+  }
+  svg.diagram { width: 100%; max-width: 640px; height: auto; display: block; margin: 0.75rem 0 0.25rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="doc-header">
+    <p class="eyebrow">Compound Engineering · ce-ideate</p>
+    <h1>FarmBot Web App — surprise-me opportunity map</h1>
+    <div class="meta">
+      <span><strong>Date</strong> <time datetime="2026-11-15">2026-11-15</time></span>
+      <span><strong>Topic</strong> open</span>
+      <span><strong>Mode</strong> this codebase (FarmBot Web App)</span>
+      <span><strong>Focus</strong> open-ended / surprise-me</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Document sections">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#grounding">Grounding context</a></li>
+      <li><a href="#axes">Topic axes</a></li>
+      <li><a href="#ideas">Ranked ideas</a></li>
+      <li><a href="#rejections">Rejection summary</a></li>
+    </ol>
+  </nav>
+
+  <section id="grounding">
+    <h2>Grounding context</h2>
+    <h3>Codebase context</h3>
+    <p>FarmBot Web App is a Rails JSON API + React 19/TypeScript frontend + MQTT realtime path for CNC-style garden robots. The product is hosted-first at my.farm.bot; self-host is supported but warned as expert-only. The frontend still uses classic Redux consumers, BlueprintJS, i18next, and a large command palette. Garden editing now has two surfaces: the long-standing 2D <code>farm_designer</code> map and a production 3D garden (<code>@react-three/fiber</code>) after <code>three_d_garden</code> defaulted to true.</p>
+    <p>Recent momentum: 3D out of beta, scene objects, area selection, a large 3D performance hill-climb journal, command-palette fixes, GCS image uploads, and sequence unpublish work. Open issue themes that still bite: timezone/date (#2388), Message Center v2 (#1897), Help Modals (#1766), motor stall UX (#2391), sequence variable rename (#2416), self-host CSP (#2505), weather-aware watering (#2498).</p>
+    <p>No <code>STRATEGY.md</code> / <code>CONCEPTS.md</code> / <code>docs/solutions/</code> yet. The densest institutional corpus is <code>docs/three_d_garden_performance_hill_climb.md</code> (acceptance bar: ≥10% plus meaningful absolute savings at realistic N, no UX quality cuts).</p>
+    <h3>External context</h3>
+    <p>Adjacent 2025–2026 signals: irrigation products that explain skips (Rachio / Home Assistant), robotics ops layouts (Foxglove), local-first ag twins, and consumer garden robots that lead on offline and exception UX. Forum and research pressure around offline Lua/API coupling, self-host migration, and richer sequence debugging.</p>
+  </section>
+
+  <section id="axes">
+    <h2>Topic axes</h2>
+    <p class="muted">Decomposition skipped — surprise-me mode. Frames discovered their own subjects; cross-cutting synthesis carried coverage.</p>
+  </section>
+
+  <section id="ideas">
+    <h2>Ranked ideas</h2>
+    <p class="jump">
+      <a href="#i1">1. Exception Ops Console</a>
+      <a href="#i2">2. Garden Clock Contract</a>
+      <a href="#i3">3. Single Spatial Truth</a>
+      <a href="#i4">4. AI Ops Co-pilot</a>
+      <a href="#i5">5. Sequence Variable Rename Pass</a>
+      <a href="#i6">6. Palette Capability Registry</a>
+      <a href="#i7">7. Hill-climb Ritual Export</a>
+    </p>
+
+    <article class="idea" id="i1">
+      <div class="idea-head"><span class="rank">1</span><h3>Exception Ops Console</h3></div>
+      <div class="badges">
+        <span class="badge conf-med">Confidence 68%</span>
+        <span class="badge">Complexity High</span>
+      </div>
+      <p>Reboot Message Center from dismissible setup cards into a garden exception console: stalls, rain holds, offline windows, and quota pressure as actionable strips that clear when resolved. Pair with 3D stall forensics (#2391, now unblocked by 3D GA) and audited weather go/no-go for watering (#2498), feeding the same digest/ops surface.</p>
+      <svg class="diagram" viewBox="0 0 640 160" role="img" aria-label="Exception strips feed digests and 3D stall replay">
+        <rect x="8" y="40" width="140" height="80" rx="10" fill="#d7ebe0" stroke="#2f6b4f"/>
+        <text x="78" y="85" text-anchor="middle" font-size="13" fill="#1c241c">Stall / rain / offline</text>
+        <path d="M155 80 H210" stroke="#2f6b4f" stroke-width="2" marker-end="url(#a)"/>
+        <rect x="215" y="40" width="160" height="80" rx="10" fill="#fff" stroke="#2f6b4f"/>
+        <text x="295" y="85" text-anchor="middle" font-size="13" fill="#1c241c">Exception strips</text>
+        <path d="M380 80 H430" stroke="#2f6b4f" stroke-width="2"/>
+        <rect x="435" y="18" width="180" height="50" rx="10" fill="#f7edd8" stroke="#8a5a12"/>
+        <text x="525" y="48" text-anchor="middle" font-size="13" fill="#1c241c">Quota digests</text>
+        <rect x="435" y="92" width="180" height="50" rx="10" fill="#e4ebe3" stroke="#5a675a"/>
+        <text x="525" y="122" text-anchor="middle" font-size="13" fill="#1c241c">3D stall replay</text>
+        <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2f6b4f"/></marker></defs>
+      </svg>
+      <p class="field-label">Basis</p>
+      <p class="basis">direct: #1897 Message Center v2; <code>MESSAGES_PANEL</code> still describes “setup cards and announcements… Check back often”; #2391 deferred trail/heatmap work until 3D production (now true); #2498 weather watering ask. external: Rachio/HA irrigation exception UX; ATC-style flight strips / Agtonomy exception queues.</p>
+      <p class="field-label">Rationale</p>
+      <p>Announcement UX and ops UX optimize opposite metrics. Turning the center into cleared exceptions changes what “done” means for years-old issues and uses 3D where it earns trust.</p>
+      <p class="field-label">Downsides</p>
+      <div class="downsides">Large product reframe; weather data provenance and auto-skip liability; must not bury remaining setup cards. Verifier noted the ATC/black-box stack is aspirational — ship as a sequenced program, not one PR.</div>
+    </article>
+
+    <article class="idea" id="i2">
+      <div class="idea-head"><span class="rank">2</span><h3>Garden Clock Contract</h3></div>
+      <div class="badges">
+        <span class="badge conf-med">Confidence 72%</span>
+        <span class="badge">Complexity High</span>
+      </div>
+      <p>Declare one garden clock: authoring for plants, farm events, regimens, and digests happens in bot-local civil time; UTC is computed only at the MQTT/device edge. Surface a persistent bot-vs-browser clock indicator when they diverge. Kill the class of off-by-one date bugs (#2388) with a contract, not another widget patch.</p>
+      <p class="field-label">Basis</p>
+      <p class="basis">direct: #2388; plant status edits convert date strings through <code>utcOffset</code>; <code>FarmEvents::CleanExpired</code> and digests already depend on <code>device.timezone</code>; <code>Content.DIFFERENT_TZ_WARNING</code> / <code>TzWarning</code> admit the split. external: observatory site-time vs absolute-time scheduling analogy.</p>
+      <p class="field-label">Rationale</p>
+      <p>Timezone defects silently mis-time irrigation and planting age. A single contract removes the conversion surface that regenerates the bug class.</p>
+      <p class="field-label">Downsides</p>
+      <div class="downsides">Touches many consumers; FBOS and browser edges must agree; migration of stored UTC values is careful work. Not a thin fix — schedule as a domain project.</div>
+    </article>
+
+    <article class="idea" id="i3">
+      <div class="idea-head"><span class="rank">3</span><h3>Single Spatial Truth</h3></div>
+      <div class="badges">
+        <span class="badge conf-med">Confidence 70%</span>
+        <span class="badge">Complexity High</span>
+      </div>
+      <p>Make the production 3D garden the write path for garden state. Demote interactive 2D to a derived orthographic/export/accessibility projection. Elevate scene objects into the shared spatial graph both views read, so area selection, stalls, and fixtures stop shipping twice.</p>
+      <p class="field-label">Basis</p>
+      <p class="basis">direct: migration <code>20260728183708_change_three_d_garden_default</code> sets <code>three_d_garden</code> default true; dual stacks remain in <code>farm_designer/map</code> and <code>three_d_garden</code>; scene objects already quota-capped (<code>MAX_SCENE_OBJECT_COUNT = 1000</code>) and rendered in 3D. reasoned: parity debt is a product choice, not physics.</p>
+      <p class="field-label">Rationale</p>
+      <p>Every new spatial capability currently pays a double tax. One truth surface compounds the 3D investment already made.</p>
+      <p class="field-label">Downsides</p>
+      <div class="downsides">Major rewrite; accessibility and low-power users still need a 2D path; risk of alienating muscle-memory 2D power users if projection is underpowered.</div>
+    </article>
+
+    <article class="idea" id="i4">
+      <div class="idea-head"><span class="rank">4</span><h3>AI Ops Co-pilot</h3></div>
+      <div class="badges">
+        <span class="badge conf-high">Confidence 84%</span>
+        <span class="badge">Complexity Medium</span>
+      </div>
+      <p>Broaden <code>AisController</code> from sequence title/color/description (and separate Lua codegen) into a farm-ops context bus: propose interventions — safe variable rename sets, stall explanations, rain-hold suggestions — that humans approve. Sequences become one output format, not the only AI job.</p>
+      <p class="field-label">Basis</p>
+      <p class="basis">direct: <code>sequence_inner_prompts</code> only covers description/color/title while Lua is a separate full-codegen path; throttle policy already exists. grounded pains #2416 / #2391 / #2498 benefit from structured proposals rather than metadata autocomplete.</p>
+      <p class="field-label">Rationale</p>
+      <p>AI spend and throttle budget already exist; widening context multiplies value across editor, ops, and watering without a second AI stack.</p>
+      <p class="field-label">Downsides</p>
+      <div class="downsides">Prompt/safety review; must not invent garden state; hosted vs self-host AI availability becomes a sharper product fork.</div>
+    </article>
+
+    <article class="idea" id="i5">
+      <div class="idea-head"><span class="rank">5</span><h3>Sequence Variable Rename Pass</h3></div>
+      <div class="badges">
+        <span class="badge conf-high">Confidence 88%</span>
+        <span class="badge">Complexity Low–Medium</span>
+      </div>
+      <p>When a local variable is in use, stop blocking rename. Perform an atomic CeleryScript identifier rewrite across the body (with collision warnings and preview), treating sequences as a language with a compiler pass rather than a form.</p>
+      <p class="field-label">Basis</p>
+      <p class="basis">direct: #2416; <code>variable_form.tsx</code> uses a read-only label and <code>error(t("Can't edit variable name while in use."))</code> when <code>inUse</code> — rename is blocked exactly when it matters most.</p>
+      <p class="field-label">Rationale</p>
+      <p>Highest confidence / lowest burden survivor. Unlocks safer AI-authored sequences and removes a footgun power users hit on complex graphs.</p>
+      <p class="field-label">Downsides</p>
+      <div class="downsides">Lua string references may be incomplete; need undo/preview; collision with identically named identifiers across scopes.</div>
+    </article>
+
+    <article class="idea" id="i6">
+      <div class="idea-head"><span class="rank">6</span><h3>Palette Capability Registry</h3></div>
+      <div class="badges">
+        <span class="badge conf-med">Confidence 65%</span>
+        <span class="badge">Complexity Medium</span>
+      </div>
+      <p>Promote the command palette from a flat searchable list into the capability registry every feature publishes into (structured intent + params). AI tool-calling, Help Modals, hotkeys, and future HA/MQTT remotes then share one surface. Add mission layouts (“debug stall”, “author watering”) that rearrange panels like Foxglove presets.</p>
+      <p class="field-label">Basis</p>
+      <p class="basis">direct: <code>frontend/command_palette/commands.tsx</code> already spans panels, device actions, sequences, regimens, crops, scene objects, settings. external: Foxglove saved layouts. reasoned: without a registry, each channel grows a parallel entry-point map.</p>
+      <p class="field-label">Rationale</p>
+      <p>Amortizes discoverability and integration work. Makes “ships a palette capability” a definition of done that compounds.</p>
+      <p class="field-label">Downsides</p>
+      <div class="downsides">Verifier correctly notes today’s list is not yet a registry — this is a disciplined refactor, not a rename. Migration tax across ~thousands of lines of commands.</div>
+    </article>
+
+    <article class="idea" id="i7">
+      <div class="idea-head"><span class="rank">7</span><h3>Hill-climb Ritual Export</h3></div>
+      <div class="badges">
+        <span class="badge conf-high">Confidence 86%</span>
+        <span class="badge">Complexity Low</span>
+      </div>
+      <p>Extract the 3D hill-climb acceptance rule into a reusable engineering ritual for any expensive surface (2D map, MQTT reconnect, digests, sequence viz): realistic N, ≥10% plus meaningful absolute gain, no UX quality regressions, rollback on collateral damage. Seed <code>docs/solutions/</code> so future agents stop rediscovering folklore from a 19k-line journal.</p>
+      <p class="field-label">Basis</p>
+      <p class="basis">direct: <code>docs/three_d_garden_performance_hill_climb.md</code> already encodes the bar and hundreds of accept/reject decisions; learnings search found <code>docs/solutions/</code> missing — institutional knowledge is centralized nowhere else.</p>
+      <p class="field-label">Rationale</p>
+      <p>Highest leverage documentation move in this run: turns a one-off 3D diary into Compound Engineering memory for the whole repo.</p>
+      <p class="field-label">Downsides</p>
+      <div class="downsides">Ritual without enforcement becomes shelfware; needs a short checklist owners actually cite in PRs.</div>
+    </article>
+  </section>
+
+  <section id="rejections">
+    <h2>Rejection summary</h2>
+    <p class="muted">~48 raw ideas across six frames → clustered → 12 verified → 7 survivors. Representative cuts:</p>
+    <table class="reject">
+      <thead><tr><th>Idea</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Local-first Lua <code>api()</code> as mothership fallback story</td><td>Basis refuted: demo runner already serves GETs from in-memory Redux; claim overstated FBOS offline path.</td></tr>
+        <tr><td>Self-host CSP doctor</td><td>Basis refuted: <code>csp_reports</code> only logs to Rollbar — no stored reports or recovery UI to extend yet.</td></tr>
+        <tr><td>Million-object twin</td><td>Basis refuted: contradicts hill-climb realistic-N discipline and the 1000 scene-object cap intent.</td></tr>
+        <tr><td>Cloud-is-edge / self-host default nation</td><td>Conflicts with README hosted-first product posture (subject-adjacent strategy pivot).</td></tr>
+        <tr><td>Solar-phenology as sole schedule authority</td><td>Weak vs Garden Clock; fights civil <code>device.timezone</code> model without enough payoff.</td></tr>
+        <tr><td>Zero-AI deterministic garden</td><td>Useful strategic foil; better as brainstorm variant of AI Ops Co-pilot, not a separate product bet here.</td></tr>
+        <tr><td>Duplicate 3D-only / stall / rain variants</td><td>Merged into stronger survivors (Single Spatial Truth, Exception Ops Console).</td></tr>
+        <tr><td>In-scene Help Modals alone</td><td>Overlaps Palette/AI surfaces; keep as a brainstorm detail under registry rather than a top-level survivor.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="composition-signal">
+    Composed 2026-11-15 by ce-ideate (surprise-me) from FarmBot Web App grounding run <code>97bd771e</code>.
+    Next step: pick one survivor and run <code>ce-brainstorm</code> for a requirements-only plan.
+  </footer>
+</div>
+</body>
+</html>
