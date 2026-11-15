@@ -300,11 +300,15 @@ plot_guardian/
       service.py
     hub.py                    # orchestration
   tests/
+    test_scaffold_imports.py
     test_codec.py
     test_enrollment.py
+    test_link_stub.py
+    test_camera_store.py
     test_confidence.py
     test_quiet_windows.py
     test_qa_freshness.py
+    test_digest_heartbeat.py
     test_hub_flows.py
 ```
 
@@ -328,7 +332,7 @@ plot_guardian/
 
 ### Sequencing
 
-U1 → U2 → U3 → U4 → U5 → U6 → U7 (U4 and U5 can overlap after U3; U6 needs U3–U5).
+U1 first. U2→U3 and U4→U5 can proceed in parallel after U1 (U4 does not need LinkPort). U6 needs U2–U5; U7 integrates all.
 
 ---
 
@@ -372,7 +376,7 @@ U1 → U2 → U3 → U4 → U5 → U6 → U7 (U4 and U5 can overlap after U3; U6
 - **Goal:** Deliver and accept short texts only for the enrolled owner.
 - **Requirements:** R11, R13; AE8; KTD3, KTD4
 - **Dependencies:** U2
-- **Files:** `plot_guardian/src/plot_guardian/link/base.py`, `sms_modem.py`, `stub.py`, `enrollment.py`, `plot_guardian/tests/test_enrollment.py`, `plot_guardian/tests/test_link_stub.py`
+- **Files:** `plot_guardian/src/plot_guardian/link/base.py`, `plot_guardian/src/plot_guardian/link/sms_modem.py`, `plot_guardian/src/plot_guardian/link/stub.py`, `plot_guardian/src/plot_guardian/link/enrollment.py`, `plot_guardian/tests/test_enrollment.py`, `plot_guardian/tests/test_link_stub.py`
 - **Approach:**
   1. `LinkPort.send(text)` / `LinkPort.poll_inbound()` interface.
   2. `Stage1Stub` records outbound and injects inbound for tests.
@@ -387,9 +391,9 @@ U1 → U2 → U3 → U4 → U5 → U6 → U7 (U4 and U5 can overlap after U3; U6
 ### U4. Cameras and local frame store
 
 - **Goal:** Require local RTSP/USB capture; store frames on hub; never upload hub-managed frames.
-- **Requirements:** R9, R10, R14; AE5, AE6
+- **Requirements:** R9, R10, R12, R14; AE5, AE6
 - **Dependencies:** U1
-- **Files:** `plot_guardian/src/plot_guardian/cameras/rtsp.py`, `store.py`, `plot_guardian/tests/test_camera_store.py`
+- **Files:** `plot_guardian/src/plot_guardian/cameras/rtsp.py`, `plot_guardian/src/plot_guardian/cameras/store.py`, `plot_guardian/tests/test_camera_store.py`
 - **Approach:**
   1. Config must list ≥1 local camera; boot fails closed if missing.
   2. Frame store writes under hub data dir with capture timestamps.
@@ -406,7 +410,7 @@ U1 → U2 → U3 → U4 → U5 → U6 → U7 (U4 and U5 can overlap after U3; U6
 - **Goal:** Person-at-gate events with confirmation policy; plant plugin returns wilt/weed or uncertain.
 - **Requirements:** R2, R4, R7, R8; AE2, AE7; KTD2, KTD6
 - **Dependencies:** U4
-- **Files:** `plot_guardian/src/plot_guardian/vision/person_frigate.py`, `plant_plugin.py`, `confidence.py`, `plot_guardian/src/plot_guardian/schedule/quiet_windows.py`, `plot_guardian/tests/test_confidence.py`, `plot_guardian/tests/test_quiet_windows.py`
+- **Files:** `plot_guardian/src/plot_guardian/vision/person_frigate.py`, `plot_guardian/src/plot_guardian/vision/plant_plugin.py`, `plot_guardian/src/plot_guardian/vision/confidence.py`, `plot_guardian/src/plot_guardian/schedule/quiet_windows.py`, `plot_guardian/tests/test_confidence.py`, `plot_guardian/tests/test_quiet_windows.py`
 - **Approach:**
   1. Map Frigate MQTT/event JSON into internal `PersonEvent` with score.
   2. Emit alert only if score ≥ threshold and outside quiet windows.
@@ -422,8 +426,8 @@ U1 → U2 → U3 → U4 → U5 → U6 → U7 (U4 and U5 can overlap after U3; U6
 
 - **Goal:** Daily digest, rare heartbeats, and age-aware Q&A answers.
 - **Requirements:** R3, R5, R6, R7; F1, F3, F4; AE1, AE3, AE4
-- **Dependencies:** U2, U3, U5
-- **Files:** `plot_guardian/src/plot_guardian/schedule/digest.py`, `heartbeat.py`, `plot_guardian/src/plot_guardian/qa/service.py`, `plot_guardian/tests/test_qa_freshness.py`, `plot_guardian/tests/test_digest_heartbeat.py`
+- **Dependencies:** U2, U3, U4, U5
+- **Files:** `plot_guardian/src/plot_guardian/schedule/digest.py`, `plot_guardian/src/plot_guardian/schedule/heartbeat.py`, `plot_guardian/src/plot_guardian/qa/service.py`, `plot_guardian/tests/test_qa_freshness.py`, `plot_guardian/tests/test_digest_heartbeat.py`
 - **Approach:**
   1. Digest job pulls latest plant+person summaries, encodes via codec, sends via LinkPort.
   2. Heartbeat job sends alive line on interval from KTD6.
@@ -431,8 +435,8 @@ U1 → U2 → U3 → U4 → U5 → U6 → U7 (U4 and U5 can overlap after U3; U6
 - **Test scenarios:**
   - Covers AE1: digest send uses stub LinkPort.
   - Covers AE3: answer includes age; stale frames trigger recapture hook.
+  - Covers AE4: with KTD6 interval/grace constants, a missed heartbeat is classified as monitoring-path unknown (not all-clear, not plot emergency); owner-facing copy matches that constant.
   - Heartbeat text matches alive schema.
-  - Owner-facing docs/comments for missed heartbeat use monitoring-path unknown (R5) — assert constant string used in README or message help text.
 
 ### U7. Hub orchestration and flow tests
 
